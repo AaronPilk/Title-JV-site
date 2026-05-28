@@ -705,18 +705,41 @@
   </footer>
 
   <script>
-    // Mobile menu toggle
+    // Mobile menu — toggle on tap, close on backdrop / link / × / Escape.
     (function () {
       var btn = document.querySelector('[data-nav-toggle]');
       var menu = document.querySelector('[data-mobile-menu]');
       var close = document.querySelector('[data-nav-close]');
       if (!btn || !menu) return;
-      function open()  { menu.dataset.open = 'true';  menu.setAttribute('aria-hidden','false'); btn.setAttribute('aria-expanded','true');  document.body.style.overflow = 'hidden'; }
-      function shut()  { menu.dataset.open = 'false'; menu.setAttribute('aria-hidden','true');  btn.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; }
-      btn.addEventListener('click', open);
+      function isOpen() { return menu.dataset.open === 'true'; }
+      function open() {
+        menu.dataset.open = 'true';
+        menu.setAttribute('aria-hidden', 'false');
+        btn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+      function shut() {
+        menu.dataset.open = 'false';
+        menu.setAttribute('aria-hidden', 'true');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+      // Tap hamburger to toggle (not just open)
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        if (isOpen()) shut(); else open();
+      });
       if (close) close.addEventListener('click', shut);
+      // Tap any link inside the menu — close
       menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', shut); });
-      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') shut(); });
+      // Tap the menu backdrop (anywhere not on a button/link) — close
+      menu.addEventListener('click', function(e){
+        if (e.target === menu) shut();
+      });
+      // Escape — close
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && isOpen()) shut(); });
+      // Safety net: if something nukes the page state, restore scroll on unload
+      window.addEventListener('pagehide', function(){ document.body.style.overflow = ''; });
     })();
     // Footer year
     (function(){ var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); })();

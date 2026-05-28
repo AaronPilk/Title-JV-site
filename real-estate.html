@@ -80,6 +80,28 @@
           <li class="nav__cta"><a class="btn btn--primary" href="/qualify.html?source=real-estate" data-cta="nav-qualify">See If You Qualify</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-nav-toggle>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu data-open="false" aria-hidden="true">
+      <div class="container">
+        <div class="mobile-menu__head">
+          <a href="/" class="site-header__brand">
+            <img src="assets/logo.svg" alt="Ballantyne Title Company" class="site-header__logo" width="180" height="48">
+          </a>
+          <button class="mobile-menu__close" aria-label="Close menu" data-nav-close>×</button>
+        </div>
+        <ul class="mobile-menu__list">
+          <li><a class="mobile-menu__link" href="/mortgage-brokers.html">Mortgage brokers</a></li>
+          <li><a class="mobile-menu__link" href="/real-estate.html">Real estate teams</a></li>
+          <li><a class="mobile-menu__link" href="/top-producers.html">Top producers</a></li>
+          <li><a class="mobile-menu__link" href="/#how-it-works">How it works</a></li>
+          <li><a class="mobile-menu__link" href="/#respa">Compliance</a></li>
+          <li><a class="mobile-menu__link" href="/#faq">FAQ</a></li>
+        </ul>
+        <a class="btn btn--primary btn--block mobile-menu__cta" href="/qualify.html?source=real-estate" data-cta="mobile-qualify">See If You Qualify</a>
+      </div>
     </div>
   </header>
 
@@ -243,6 +265,24 @@
       <p class="site-footer__legal" style="margin-top: 32px; font-size: 0.82rem; color: rgba(255,255,255,0.55);">Submitting the qualification review is not an offer or guarantee of a joint venture relationship. Distributions described relate to ownership returns from a duly structured Affiliated Business Arrangement under RESPA Safe Harbor 8(c)(4) and are not per-referral payments. &copy; Ballantyne Title Company.</p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector('[data-nav-toggle]');
+      var menu = document.querySelector('[data-mobile-menu]');
+      var close = document.querySelector('[data-nav-close]');
+      if (!btn || !menu) return;
+      function isOpen() { return menu.dataset.open === 'true'; }
+      function open() { menu.dataset.open = 'true'; menu.setAttribute('aria-hidden', 'false'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
+      function shut() { menu.dataset.open = 'false'; menu.setAttribute('aria-hidden', 'true'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+      btn.addEventListener('click', function(e){ e.stopPropagation(); if (isOpen()) shut(); else open(); });
+      if (close) close.addEventListener('click', shut);
+      menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', shut); });
+      menu.addEventListener('click', function(e){ if (e.target === menu) shut(); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && isOpen()) shut(); });
+      window.addEventListener('pagehide', function(){ document.body.style.overflow = ''; });
+    })();
+  </script>
 
 </body>
 </html>
