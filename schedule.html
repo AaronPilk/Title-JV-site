@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Schedule Strategy Call — Ballantyne Title JV</title>
+  <meta name="description" content="Schedule a private 30–45 minute strategy call with Richard Tocado's team to walk through whether a title joint venture structure may fit your business.">
+  <meta name="robots" content="noindex,follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Tracking pixels -->
+  <script>
+    window.JV_PIXELS = {
+      META_PIXEL_ID: 'REPLACE_WITH_META_PIXEL_ID',
+      GOOGLE_ADS_ID: 'AW-REPLACE_WITH_GOOGLE_ADS_ID',
+      GOOGLE_ADS_LEAD_LABEL: 'REPLACE_WITH_CONVERSION_LABEL',
+      LINKEDIN_PARTNER_ID: 'REPLACE_WITH_LINKEDIN_PARTNER_ID'
+    };
+  </script>
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  if (window.JV_PIXELS.META_PIXEL_ID && !window.JV_PIXELS.META_PIXEL_ID.startsWith('REPLACE')) {
+    fbq('init', window.JV_PIXELS.META_PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+  </script>
+  <script>
+  (function(){
+    var id = window.JV_PIXELS.GOOGLE_ADS_ID;
+    if (!id || id.indexOf('REPLACE') !== -1) return;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', id);
+  })();
+  </script>
+  <script>
+  (function(){
+    var id = window.JV_PIXELS.LINKEDIN_PARTNER_ID;
+    if (!id || id.indexOf('REPLACE') !== -1) return;
+    window._linkedin_partner_id = id;
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(id);
+    var b = document.createElement('script'); b.type = 'text/javascript'; b.async = true;
+    b.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';
+    document.head.appendChild(b);
+  })();
+  </script>
+
+  <!-- Calendar config — replace SCHEDULER_URL with the real Calendly / GHL booking link -->
+  <script>
+    window.JV_SCHEDULER = {
+      // EXAMPLES: 'https://calendly.com/richard-tocado/jv-strategy-call'
+      //           'https://api.leadconnectorhq.com/widget/booking/XXXXXXXX'
+      SCHEDULER_URL: 'REPLACE_WITH_SCHEDULER_URL'
+    };
+  </script>
+
+  <style>
+    .sched-shell { max-width: 980px; margin: 56px auto 80px; padding: 0 20px; }
+    .sched-head { text-align: center; margin-bottom: 32px; }
+    .sched-head h1 { margin: 0 0 10px; font-size: clamp(1.7rem, 2.6vw + 0.5rem, 2.3rem); }
+    .sched-head p { margin: 0; color: rgba(0,48,91,0.7); max-width: 56ch; margin-inline: auto; }
+    .sched-frame {
+      background: #fff; border: 1px solid rgba(0,48,91,0.08);
+      border-radius: var(--radius-lg, 16px);
+      overflow: hidden;
+      box-shadow: 0 24px 60px -30px rgba(0,48,91,0.25);
+      min-height: 720px;
+      position: relative;
+    }
+    .sched-frame iframe { width: 100%; height: 100%; min-height: 720px; border: 0; display: block; }
+    .sched-placeholder {
+      padding: 64px 32px; text-align: center;
+      color: rgba(0,48,91,0.7);
+    }
+    .sched-placeholder h3 { margin: 0 0 8px; color: var(--brand-primary, #00305B); }
+    .sched-placeholder p { margin: 0 auto 24px; max-width: 50ch; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" style="border-bottom: 1px solid rgba(0,48,91,0.08);">
+    <div class="container site-header__inner">
+      <a href="/" class="site-header__brand" aria-label="Ballantyne Title — Home">
+        <img src="assets/logo.svg" alt="Ballantyne Title Company" class="site-header__logo" width="180" height="48">
+      </a>
+      <a class="nav__link" href="/" style="font-size:0.92rem;">&larr; Back to overview</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="sched-shell">
+      <div class="sched-head">
+        <p class="eyebrow">Private Strategy Call</p>
+        <h1>Schedule a 30&ndash;45 minute strategy call.</h1>
+        <p>We will walk through your production, market, and structure, explain what a JV could look like for your specific business, and answer compliance questions. There is no obligation.</p>
+      </div>
+
+      <div class="sched-frame" id="sched-frame">
+        <div class="sched-placeholder" id="sched-placeholder">
+          <h3>Scheduler is being connected.</h3>
+          <p>Richard's booking calendar will be embedded here. In the meantime, request a JV review and we will reach out to schedule directly.</p>
+          <a class="btn btn--accent" href="/qualify.html">Request JV Review</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      var url = window.JV_SCHEDULER && window.JV_SCHEDULER.SCHEDULER_URL;
+      if (!url || url.indexOf('REPLACE') !== -1) return;
+      var frame = document.getElementById('sched-frame');
+      var placeholder = document.getElementById('sched-placeholder');
+      if (placeholder) placeholder.remove();
+      var iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.title = 'Schedule a strategy call';
+      iframe.allow = 'fullscreen';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      frame.appendChild(iframe);
+    })();
+  </script>
+
+</body>
+</html>

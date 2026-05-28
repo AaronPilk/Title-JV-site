@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>JV Qualification Review — Ballantyne Title</title>
+  <meta name="description" content="A short structured review covering market, production, team size, and existing title relationships. We evaluate submissions privately and follow up only if there appears to be a fit.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://jv.ballantynetitle.com/qualify.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Tracking pixels — see index.html for the full snippet block -->
+  <script>
+    window.JV_PIXELS = {
+      META_PIXEL_ID: 'REPLACE_WITH_META_PIXEL_ID',
+      GOOGLE_ADS_ID: 'AW-REPLACE_WITH_GOOGLE_ADS_ID',
+      GOOGLE_ADS_LEAD_LABEL: 'REPLACE_WITH_CONVERSION_LABEL',
+      LINKEDIN_PARTNER_ID: 'REPLACE_WITH_LINKEDIN_PARTNER_ID'
+    };
+  </script>
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  if (window.JV_PIXELS.META_PIXEL_ID && !window.JV_PIXELS.META_PIXEL_ID.startsWith('REPLACE')) {
+    fbq('init', window.JV_PIXELS.META_PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+  </script>
+  <script>
+  (function(){
+    var id = window.JV_PIXELS.GOOGLE_ADS_ID;
+    if (!id || id.indexOf('REPLACE') !== -1) return;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', id);
+  })();
+  </script>
+  <script>
+  (function(){
+    var id = window.JV_PIXELS.LINKEDIN_PARTNER_ID;
+    if (!id || id.indexOf('REPLACE') !== -1) return;
+    window._linkedin_partner_id = id;
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(id);
+    var b = document.createElement('script'); b.type = 'text/javascript'; b.async = true;
+    b.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';
+    document.head.appendChild(b);
+  })();
+  </script>
+
+  <style>
+    /* Qualifier-specific styling — keeps the site's existing token palette */
+    .quiz-shell { max-width: 760px; margin: 56px auto 80px; padding: 0 20px; }
+    .quiz-card {
+      background: #fff;
+      border: 1px solid rgba(0,48,91,0.08);
+      border-radius: var(--radius-lg, 16px);
+      padding: clamp(28px, 4vw, 48px);
+      box-shadow: 0 24px 60px -30px rgba(0,48,91,0.25);
+    }
+    .quiz-progress {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 32px;
+      font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase;
+      color: rgba(0,48,91,0.6);
+    }
+    .quiz-progress__bar {
+      flex: 1; height: 6px; background: rgba(0,48,91,0.08);
+      border-radius: 999px; overflow: hidden;
+    }
+    .quiz-progress__fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, var(--brand-secondary, #c89b3c), var(--brand-primary, #00305B));
+      transition: width 0.4s cubic-bezier(0.22,1,0.36,1);
+    }
+    .quiz-step { display: none; }
+    .quiz-step.is-active { display: block; animation: stepFade 0.3s ease both; }
+    @keyframes stepFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .quiz-step__eyebrow {
+      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(0,48,91,0.55); margin-bottom: 8px;
+    }
+    .quiz-step__title { margin: 0 0 8px; font-size: clamp(1.4rem, 2.2vw + 0.4rem, 1.85rem); line-height: 1.2; }
+    .quiz-step__sub { margin: 0 0 24px; color: rgba(0,48,91,0.7); font-size: 0.98rem; }
+    .quiz-options { display: grid; gap: 12px; margin-bottom: 28px; }
+    .quiz-option {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 18px;
+      border: 1.5px solid rgba(0,48,91,0.12);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+      background: #fff;
+      font-weight: 500;
+    }
+    .quiz-option:hover { border-color: var(--brand-primary, #00305B); background: rgba(0,48,91,0.025); }
+    .quiz-option input { width: 18px; height: 18px; accent-color: var(--brand-primary, #00305B); }
+    .quiz-option input:checked + span { color: var(--brand-primary, #00305B); }
+    .quiz-option:has(input:checked) { border-color: var(--brand-primary, #00305B); background: rgba(0,48,91,0.04); }
+    .quiz-field { margin-bottom: 18px; }
+    .quiz-field label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; color: var(--brand-primary, #00305B); }
+    .quiz-field input,
+    .quiz-field select,
+    .quiz-field textarea {
+      width: 100%; padding: 12px 14px;
+      border: 1.5px solid rgba(0,48,91,0.15); border-radius: 10px;
+      font-family: inherit; font-size: 1rem;
+      background: #fff; color: inherit;
+    }
+    .quiz-field input:focus, .quiz-field select:focus, .quiz-field textarea:focus {
+      outline: none; border-color: var(--brand-primary, #00305B);
+      box-shadow: 0 0 0 4px rgba(0,48,91,0.08);
+    }
+    .quiz-field__row { display: grid; gap: 14px; grid-template-columns: 1fr; }
+    @media (min-width: 540px) { .quiz-field__row { grid-template-columns: 1fr 1fr; } }
+    .quiz-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+    .quiz-nav .btn { flex: 1; min-width: 140px; }
+    .quiz-nav .btn--back {
+      background: transparent; color: rgba(0,48,91,0.7);
+      border: 1.5px solid rgba(0,48,91,0.15);
+    }
+    .quiz-nav .btn--back:hover { background: rgba(0,48,91,0.04); }
+    .quiz-error {
+      background: #fdecec; border-left: 4px solid #d33;
+      padding: 12px 14px; border-radius: 8px; margin-bottom: 16px;
+      font-size: 0.92rem; color: #911; display: none;
+    }
+    .quiz-error.is-visible { display: block; }
+    .quiz-header { text-align: center; margin-bottom: 32px; }
+    .quiz-header__logo { height: 48px; margin-bottom: 14px; }
+    .quiz-header__title { margin: 0 0 8px; font-size: 1.5rem; }
+    .quiz-header__sub { margin: 0; color: rgba(0,48,91,0.65); font-size: 0.95rem; }
+    .quiz-fineprint { margin-top: 24px; font-size: 0.82rem; color: rgba(0,48,91,0.55); text-align: center; line-height: 1.5; }
+    .quiz-submitting {
+      display: none; text-align: center; padding: 40px 20px;
+    }
+    .quiz-submitting.is-visible { display: block; }
+    .quiz-submitting__spinner {
+      width: 44px; height: 44px;
+      border: 3px solid rgba(0,48,91,0.15); border-top-color: var(--brand-primary, #00305B);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 18px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+  <!-- Minimal header — keep the qualifier focused -->
+  <header class="site-header" style="border-bottom: 1px solid rgba(0,48,91,0.08);">
+    <div class="container site-header__inner">
+      <a href="/" class="site-header__brand" aria-label="Ballantyne Title — Home">
+        <img src="assets/logo.svg" alt="Ballantyne Title Company" class="site-header__logo" width="180" height="48">
+      </a>
+      <a class="nav__link" href="/" style="font-size:0.92rem;">&larr; Back to overview</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="quiz-shell">
+      <div class="quiz-card">
+
+        <div class="quiz-header">
+          <p class="eyebrow">JV Qualification Review</p>
+          <h1 class="quiz-header__title">See if your business may qualify.</h1>
+          <p class="quiz-header__sub">Seven short questions. Reviewed privately. We follow up only if there appears to be a fit.</p>
+        </div>
+
+        <div class="quiz-progress" aria-hidden="true">
+          <span id="quiz-step-label">Step 1 of 7</span>
+          <div class="quiz-progress__bar">
+            <div class="quiz-progress__fill" id="quiz-progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="quiz-error" id="quiz-error" role="alert"></div>
+
+        <form id="quiz-form" novalidate>
+
+          <!-- Step 1 — Role -->
+          <fieldset class="quiz-step is-active" data-step="1">
+            <p class="quiz-step__eyebrow">About you</p>
+            <h2 class="quiz-step__title">What best describes your role?</h2>
+            <p class="quiz-step__sub">This determines which JV structure may apply.</p>
+            <div class="quiz-options" role="radiogroup">
+              <label class="quiz-option"><input type="radio" name="role" value="Mortgage Broker / Owner" required><span>Mortgage broker / owner</span></label>
+              <label class="quiz-option"><input type="radio" name="role" value="Real Estate Broker / Owner"><span>Real estate broker / owner</span></label>
+              <label class="quiz-option"><input type="radio" name="role" value="Team Leader"><span>Team leader</span></label>
+              <label class="quiz-option"><input type="radio" name="role" value="Producing Loan Officer"><span>Producing loan officer</span></label>
+              <label class="quiz-option"><input type="radio" name="role" value="High-Producing Agent"><span>High-producing agent</span></label>
+              <label class="quiz-option"><input type="radio" name="role" value="Other"><span>Other</span></label>
+            </div>
+            <div class="quiz-nav">
+              <button type="button" class="btn btn--accent" data-action="next">Continue</button>
+            </div>
+          </fieldset>
+
+          <!-- Step 2 — Market -->
+          <fieldset class="quiz-step" data-step="2">
+            <p class="quiz-step__eyebrow">Your market</p>
+            <h2 class="quiz-step__title">What market are you in?</h2>
+            <p class="quiz-step__sub">Market city/metro and state. We currently operate in NC and SC, but evaluate adjacent markets case-by-case.</p>
+            <div class="quiz-field">
+              <label for="market">Market (city, state)</label>
+              <input type="text" id="market" name="market" placeholder="e.g., Charlotte, NC" autocomplete="address-level2" required>
+            </div>
+            <div class="quiz-nav">
+              <button type="button" class="btn btn--back" data-action="back">Back</button>
+              <button type="button" class="btn btn--accent" data-action="next">Continue</button>
+            </div>
+          </fieldset>
+
+          <!-- Step 3 — Volume -->
+          <fieldset class="quiz-step" data-step="3">
+            <p class="quiz-step__eyebrow">Production</p>
+            <h2 class="quiz-step__title">How many purchase transactions do you influence or close per month?</h2>
+            <p class="quiz-step__sub">Use a monthly average across the last 12 months.</p>
+            <div class="quiz-options" role="radiogroup">
+              <label class="quiz-option"><input type="radio" name="monthly_transactions" value="Under 5" required><span>Under 5 / month</span></label>
+              <label class="quiz-option"><input type="radio" name="monthly_transactions" value="5-10"><span>5 to 10 / month</span></label>
+              <label class="quiz-option"><input type="radio" name="monthly_transactions" value="11-20"><span>11 to 20 / month</span></label>
+              <label class="quiz-option"><input type="radio" name="monthly_transactions" value="21-40"><span>21 to 40 / month</span></label>
+              <label class="quiz-option"><input type="radio" name="monthly_transactions" value="40+"><span>40+ / month</span></label>
+            </div>
+            <div class="quiz-nav">
+              <button type="button" class="btn btn--back" data-action="back">Back</button>
+              <button type="button" class="btn btn--accent" data-action="next">Continue</button>
+            </div>
+          </fieldset>
+
+          <!-- Step 4 — Team size -->
+          <fieldset class="quiz-step" data-step="4">
+            <p class="quiz-step__eyebrow">Team</p>
+            <h2 class="quiz-step__title">How many agents or loan officers are connected to your business?</h2>
+            <p class="quiz-step__sub">Include yourself and anyone whose production routes through your business.</p>
+            <div class="quiz-options" role="radiogroup">
+              <label class="quiz-option"><input type="radio" name="team_size" value="Just me" required><span>Just me</span></label>
+              <label class="quiz-option"><input type="radio" name="team_size" value="2-5"><span>2 to 5</span></label>
+              <label class="quiz-option"><input type="radio" name="team_size" value="6-15"><span>6 to 15</span></label>
+              <label class="quiz-option"><input type="radio" name="team_size" value="16-50"><span>16 to 50</span></label>
+              <label class="quiz-option"><input type="radio" name="team_size" value="50+"><span>50+</span></label>
+            </div>
+            <div class="quiz-nav">
+              <button type="button" class="btn btn--back" data-action="back">Back</button>
+              <button type="button" class="btn btn--accent" data-action="next">Continue</button>
+            </div>
+          </fieldset>
+
+          <!-- Step 5 — Current title relationship -->
+          <fieldset class="quiz-step" data-step="5">
+            <p class="quiz-step__eyebrow">Current relationship</p>
+            <h2 class="quiz-step__title">Do you currently have a preferred title relationship?</h2>
+            <p class="quiz-step__sub">No wrong answer &mdash; this helps us understand the current revenue flow.</p>
+            <div class="quiz-options" role="radiogroup">
+              <label class="quiz-option"><input type="radio" name="current_title" value="Yes, exclusive" required><span>Yes &mdash; we route nearly all closings to one company</span></label>
+              <label class="quiz-option"><input type="radio" name="current_title" value="Yes, multiple"><span>Yes &mdash; we route across multiple companies</span></label>
+              <label class="quiz-option"><input type="radio" name="current_title" value="Client-directed"><span>No &mdash; the client / lender typically chooses</span></label>
+              <label class="quiz-option"><input type="radio" name="current_title" value="No relationship"><span>No preferred relationship</span></label>
+            </div>
+            <div class="quiz-nav">
+              <button type="button" class="btn btn--back" data-action="back">Back</button>
+              <button type="button" class="btn btn--accent" data-action="next">Continue</button>
+            </div>
+          </fieldset>
+
+          <!-- Step 6 — Goal -->
+          <fieldset class="quiz-step" data-step="6">
+            <p class="quiz-step__eyebrow">Goal</p>
+            <h2 class="quiz-step__title">What is your main goal in exploring a title JV?</h2>
+            <p class="quiz-step__sub">Pick the option that best fits.</p>
+            <div class="quiz-options" role="radiogroup">
+              <label class="quiz-option"><input type="radio" name="goal" value="Capture more transaction revenue" required><span>Capture more transaction revenue</span></label>
+              <label class="quiz-option"><input type="radio" name="goal" value="Build enterprise value"><span>Build enterprise value</span></label>
+              <label class="quiz-option"><input type="radio" name="goal" value="Create ancillary income"><span>Create ancillary income</span></label>
+              <label class="quiz-option"><input type="radio" name="goal" value="Strengthen recruiting/retention"><span>Strengthen recruiting / retention</span></label>
+              <label class="quiz-option"><input type="radio" name="goal" value="Explore ownership opportunities"><span>Explore ownership opportunities</span></label>
+              <label class="quiz-option"><input type="radio" name="goal" value="Learn if I qualify"><span>Learn if I qualify</span></label>
+            </div>
+            <div class="quiz-nav">
+              <button type="button" class="btn btn--back" data-action="back">Back</button>
+              <button type="button" class="btn btn--accent" data-action="next">Continue</button>
+            </div>
+          </fieldset>
+
+          <!-- Step 7 — Contact -->
+          <fieldset class="quiz-step" data-step="7">
+            <p class="quiz-step__eyebrow">Contact</p>
+            <h2 class="quiz-step__title">Where should we send the review?</h2>
+            <p class="quiz-step__sub">We review submissions privately and only follow up if there appears to be a fit. No newsletters, no list rental.</p>
+
+            <div class="quiz-field__row">
+              <div class="quiz-field">
+                <label for="first_name">First name</label>
+                <input type="text" id="first_name" name="first_name" autocomplete="given-name" required>
+              </div>
+              <div class="quiz-field">
+                <label for="last_name">Last name</label>
+                <input type="text" id="last_name" name="last_name" autocomplete="family-name" required>
+              </div>
+            </div>
+
+            <div class="quiz-field">
+              <label for="company">Company / brokerage</label>
+              <input type="text" id="company" name="company" autocomplete="organization" required>
+            </div>
+
+            <div class="quiz-field__row">
+              <div class="quiz-field">
+                <label for="email">Business email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+              <div class="quiz-field">
+                <label for="phone">Mobile</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555" required>
+              </div>
+            </div>
+
+            <div class="quiz-nav">
+              <button type="button" class="btn btn--back" data-action="back">Back</button>
+              <button type="submit" class="btn btn--accent" data-action="submit">Submit Review Request</button>
+            </div>
+
+            <p class="quiz-fineprint">By submitting, you agree to be contacted by Ballantyne Title regarding your JV qualification review. We do not sell, rent, or share submissions. Submitting this form is not an offer or guarantee of a joint venture relationship.</p>
+          </fieldset>
+
+        </form>
+
+        <!-- Submitting state -->
+        <div class="quiz-submitting" id="quiz-submitting">
+          <div class="quiz-submitting__spinner" aria-hidden="true"></div>
+          <p style="margin:0; font-weight:600;">Submitting your review request&hellip;</p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+  (function(){
+    var form = document.getElementById('quiz-form');
+    var steps = form.querySelectorAll('.quiz-step');
+    var stepLabel = document.getElementById('quiz-step-label');
+    var progressFill = document.getElementById('quiz-progress-fill');
+    var errorBox = document.getElementById('quiz-error');
+    var submittingBox = document.getElementById('quiz-submitting');
+    var total = steps.length;
+    var current = 1;
+    var formStartedFired = false;
+
+    // Pull source funnel from referrer / URL params for lead-source tracking
+    var params = new URLSearchParams(window.location.search);
+    var sourceFunnel = params.get('source') || 'homepage';
+    var intent = params.get('intent') || 'qualify';
+
+    function showStep(n) {
+      steps.forEach(function(s){ s.classList.remove('is-active'); });
+      var el = form.querySelector('[data-step="' + n + '"]');
+      if (el) el.classList.add('is-active');
+      stepLabel.textContent = 'Step ' + n + ' of ' + total;
+      progressFill.style.width = (n / total * 100) + '%';
+      errorBox.classList.remove('is-visible');
+      // Focus first focusable field for accessibility
+      var first = el && el.querySelector('input, select, textarea, button');
+      if (first) setTimeout(function(){ first.focus({preventScroll:true}); }, 60);
+      // Fire JV Form Started on the first interaction past step 1
+      if (n > 1 && !formStartedFired) {
+        formStartedFired = true;
+        track('JVFormStarted');
+      }
+    }
+
+    function track(eventName) {
+      try { if (window.fbq) fbq('trackCustom', eventName); } catch(e){}
+      try { if (window.gtag) gtag('event', eventName); } catch(e){}
+    }
+
+    function validateStep(n) {
+      var el = form.querySelector('[data-step="' + n + '"]');
+      if (!el) return true;
+      var radios = el.querySelectorAll('input[type="radio"]');
+      if (radios.length) {
+        var name = radios[0].name;
+        var checked = el.querySelector('input[name="' + name + '"]:checked');
+        if (!checked) { showError('Please choose an option to continue.'); return false; }
+      }
+      var requiredInputs = el.querySelectorAll('input[required], select[required], textarea[required]');
+      for (var i = 0; i < requiredInputs.length; i++) {
+        var f = requiredInputs[i];
+        if (f.type === 'radio') continue;
+        if (!f.value || (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value))) {
+          showError(f.type === 'email' ? 'Please enter a valid email.' : 'Please complete the required fields.');
+          f.focus(); return false;
+        }
+      }
+      return true;
+    }
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.classList.add('is-visible');
+    }
+
+    form.addEventListener('click', function(e){
+      var btn = e.target.closest('[data-action]');
+      if (!btn) return;
+      var action = btn.dataset.action;
+      if (action === 'next') {
+        if (!validateStep(current)) return;
+        if (current < total) { current++; showStep(current); }
+      } else if (action === 'back') {
+        if (current > 1) { current--; showStep(current); }
+      }
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!validateStep(current)) return;
+
+      // Collect form data
+      var data = {};
+      new FormData(form).forEach(function(v, k){ data[k] = v; });
+      data.source_funnel = sourceFunnel;
+      data.intent = intent;
+      data.referrer = document.referrer || '';
+      data.submitted_at = new Date().toISOString();
+      // Derive GHL tag from role
+      var roleTagMap = {
+        'Mortgage Broker / Owner': 'JV Mortgage Broker',
+        'Producing Loan Officer': 'JV Mortgage Broker',
+        'Real Estate Broker / Owner': 'JV Real Estate Broker',
+        'Team Leader': 'JV Team Leader',
+        'High-Producing Agent': 'JV High-Producing Agent',
+        'Other': 'JV Other'
+      };
+      data.lead_tag = roleTagMap[data.role] || 'JV Other';
+
+      form.style.display = 'none';
+      submittingBox.classList.add('is-visible');
+
+      fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function(res){
+        // Track completion regardless of backend result so pixels capture intent
+        track('JVFormCompleted');
+        try { if (window.fbq) fbq('track', 'Lead'); } catch(e){}
+        try {
+          if (window.gtag && window.JV_PIXELS.GOOGLE_ADS_LEAD_LABEL && window.JV_PIXELS.GOOGLE_ADS_LEAD_LABEL.indexOf('REPLACE') === -1) {
+            gtag('event', 'conversion', { send_to: window.JV_PIXELS.GOOGLE_ADS_ID + '/' + window.JV_PIXELS.GOOGLE_ADS_LEAD_LABEL });
+          }
+        } catch(e){}
+        // Persist a copy locally so the thank-you page can greet by first name
+        try { sessionStorage.setItem('jv_lead_first_name', data.first_name || ''); } catch(e){}
+        window.location.href = '/thank-you.html';
+      })
+      .catch(function(){
+        // Even on network error, route to thank-you — the team can chase from the email/CRM log if it arrived
+        window.location.href = '/thank-you.html';
+      });
+    });
+
+    showStep(1);
+  })();
+  </script>
+
+</body>
+</html>

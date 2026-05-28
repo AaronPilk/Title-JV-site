@@ -3,16 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Own Your Own Title Company — A RESPA-Compliant Joint Venture | Ballantyne Title</title>
-  <meta name="description" content="Yes — owning a title company you refer business to is fully legal under RESPA Safe Harbor 8(c)(4). Ballantyne Title builds turn-key, RESPA-compliant title companies for mortgage, real estate, builder, title and entrepreneur partners across NC and SC.">
+  <title>Capture Revenue You're Already Creating — Title Joint Venture | Ballantyne Title</title>
+  <meta name="description" content="Mortgage brokers, real estate teams, and high-producing operators already create title revenue every transaction. A properly structured joint venture title company may allow qualified operators to participate in that revenue. See if you qualify.">
   <link rel="canonical" href="https://jv.ballantynetitle.com/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Own Your Own Title Company — Joint Venture | Ballantyne Title">
-  <meta property="og:description" content="A turn-key, RESPA-compliant title company partnership for mortgage, real estate, builder and title professionals across the Carolinas.">
+  <meta property="og:title" content="Capture Revenue You're Already Creating — Title Joint Venture">
+  <meta property="og:description" content="Every closing creates title revenue. Most brokers and teams generate it but don't participate in it. See if your production qualifies for a title JV review.">
   <meta property="og:url" content="https://jv.ballantynetitle.com/">
   <meta property="og:image" content="https://ballantynetitle.com/assets/og-joint-venture.jpg">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ============================================================
+       TRACKING PIXELS — Phase 1 placeholder IDs
+       Replace the *_ID values with real IDs from Richard's ad accounts.
+       ============================================================ -->
+  <script>
+    window.JV_PIXELS = {
+      META_PIXEL_ID: 'REPLACE_WITH_META_PIXEL_ID',
+      GOOGLE_ADS_ID: 'AW-REPLACE_WITH_GOOGLE_ADS_ID',
+      GOOGLE_ADS_LEAD_LABEL: 'REPLACE_WITH_CONVERSION_LABEL',
+      LINKEDIN_PARTNER_ID: 'REPLACE_WITH_LINKEDIN_PARTNER_ID'
+    };
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  if (window.JV_PIXELS.META_PIXEL_ID && !window.JV_PIXELS.META_PIXEL_ID.startsWith('REPLACE')) {
+    fbq('init', window.JV_PIXELS.META_PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+  </script>
+
+  <!-- Google Ads / GA4 -->
+  <script>
+  (function(){
+    var id = window.JV_PIXELS.GOOGLE_ADS_ID;
+    if (!id || id.indexOf('REPLACE') !== -1) return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', id);
+  })();
+  </script>
+
+  <!-- LinkedIn Insight Tag -->
+  <script>
+  (function(){
+    var id = window.JV_PIXELS.LINKEDIN_PARTNER_ID;
+    if (!id || id.indexOf('REPLACE') !== -1) return;
+    window._linkedin_partner_id = id;
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(id);
+    var b = document.createElement('script');
+    b.type = 'text/javascript'; b.async = true;
+    b.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';
+    document.head.appendChild(b);
+  })();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -148,11 +205,11 @@
 
       <nav class="nav" aria-label="Primary">
         <ul class="nav__list">
-          <li><a class="nav__link" href="#how-its-legal">How is this legal?</a></li>
-          <li><a class="nav__link" href="#programs">Programs</a></li>
-          <li><a class="nav__link" href="#respa">RESPA</a></li>
+          <li><a class="nav__link" href="#how-it-works">How it works</a></li>
+          <li><a class="nav__link" href="#programs">Who qualifies</a></li>
+          <li><a class="nav__link" href="#respa">Compliance</a></li>
           <li><a class="nav__link" href="#faq">FAQ</a></li>
-          <li class="nav__cta"><a class="btn btn--primary" href="mailto:info@ballantynetitle.com?subject=Joint Venture - Schedule a 15-min call">Schedule a call</a></li>
+          <li class="nav__cta"><a class="btn btn--primary" href="/qualify.html" data-cta="nav-qualify">See If You Qualify</a></li>
         </ul>
       </nav>
 
@@ -171,13 +228,13 @@
           <button class="mobile-menu__close" aria-label="Close menu" data-nav-close>×</button>
         </div>
         <ul class="mobile-menu__list">
-          <li><a class="mobile-menu__link" href="#how-its-legal">How is this legal?</a></li>
-          <li><a class="mobile-menu__link" href="#programs">Programs</a></li>
-          <li><a class="mobile-menu__link" href="#respa">RESPA Safe Harbor</a></li>
+          <li><a class="mobile-menu__link" href="#how-it-works">How it works</a></li>
+          <li><a class="mobile-menu__link" href="#programs">Who qualifies</a></li>
+          <li><a class="mobile-menu__link" href="#respa">Compliance</a></li>
           <li><a class="mobile-menu__link" href="#our-companies">Our companies</a></li>
           <li><a class="mobile-menu__link" href="#faq">FAQ</a></li>
         </ul>
-        <a class="btn btn--primary btn--block mobile-menu__cta" href="mailto:info@ballantynetitle.com?subject=Joint Venture - Schedule a 15-min call">Schedule a call</a>
+        <a class="btn btn--primary btn--block mobile-menu__cta" href="/qualify.html" data-cta="mobile-qualify">See If You Qualify</a>
         <div class="mobile-menu__contact">
           <p><strong>Call us today:</strong> <a href="tel:+17044673031">704-467-3031</a></p>
           <p><strong>Nights &amp; weekends:</strong> <a href="tel:+17043709515">704-370-9515</a></p>
@@ -194,12 +251,13 @@
       <div class="container">
         <div class="hero__grid" style="align-items: center;">
           <div>
-            <p class="eyebrow">Joint Venture Program</p>
-            <h1 class="hero__title" style="font-size: clamp(1.75rem, 3.4vw + 0.75rem, 2.75rem); margin-bottom: 18px;">Own your own title company. Yes &mdash; it's legal under RESPA Safe Harbor 8(c)(4).</h1>
-            <p class="hero__sub" style="margin-bottom: 24px;">Most mortgage and real-estate professionals don't believe us at first. The right ownership structure makes it 100% RESPA-compliant. Book a 15-minute call and we'll walk you through it.</p>
+            <p class="eyebrow">Title Joint Venture Program</p>
+            <h1 class="hero__title" style="font-size: clamp(1.85rem, 3.6vw + 0.75rem, 3rem); margin-bottom: 18px;">Capture Revenue You&rsquo;re Already Creating.</h1>
+            <p class="hero__sub" style="margin-bottom: 28px;">Every closing creates title revenue. Most brokers and real estate teams generate that revenue but do not participate in it. A properly structured joint venture title company may allow qualified operators to retain more of the economics tied to transactions they already produce.</p>
             <div class="btn-row">
-              <a class="btn btn--accent" href="mailto:info@ballantynetitle.com?subject=Joint Venture - Schedule a 15-min call">Schedule a 15-min call</a>
-              <a class="btn btn--ghost" href="#how-its-legal">How is this legal?</a>
+              <a class="btn btn--accent" href="/qualify.html" data-cta="hero-qualify">See If You Qualify</a>
+              <a class="btn btn--primary" href="/qualify.html?intent=review" data-cta="hero-review">Request JV Review</a>
+              <a class="btn btn--ghost" href="/schedule.html" data-cta="hero-schedule">Schedule Strategy Call</a>
             </div>
           </div>
 
@@ -215,12 +273,12 @@
       </div>
     </section>
 
-    <!-- How is this legal? — moved out of hero so the hero balances visually with the 16:9 video -->
-    <section class="section" id="how-its-legal" style="padding-block: 32px;">
+    <!-- The premise -->
+    <section class="section" id="how-it-works" style="padding-block: 32px;">
       <div class="container">
         <div class="jv-hero-card" style="max-width: 980px; margin-inline: auto;">
-          <h3 style="margin-bottom:8px;">How is this legal? (The short answer.)</h3>
-          <p style="margin-bottom:0;">RESPA's Safe Harbor under <strong>8(c)(4)</strong> permits an Affiliated Business Arrangement &mdash; if it's structured correctly. We've spent two decades getting that structure right. We're happy to walk you through it on a call so you can see exactly how this works <em>before</em> you sign anything.</p>
+          <h3 style="margin-bottom:8px;">The premise, in one paragraph.</h3>
+          <p style="margin-bottom:0;">If your business produces purchase transactions every month, title revenue is being created on each one &mdash; and it is almost certainly going to an outside title company. A properly structured Affiliated Business Arrangement under RESPA Safe Harbor 8(c)(4) may allow qualified operators to participate in that revenue through ownership, not referral fees. The question we help you answer is whether your production, market, and structure make this a fit.</p>
         </div>
       </div>
     </section>
@@ -244,8 +302,9 @@
     <section class="section" id="programs">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">Our Joint Venture programs are perfect for…</p>
-          <h2>Five paths to owning your own title company</h2>
+          <p class="eyebrow">Who typically qualifies</p>
+          <h2>Five operator profiles we evaluate for JV structure</h2>
+          <p class="lead" style="margin-inline:auto;">Each profile creates title revenue differently. The qualification review takes that into account &mdash; production, market, structure, and the role you play in the transaction.</p>
         </div>
 
         <div class="partner-types">
@@ -261,7 +320,7 @@
             </span>
             <h3 class="card__title">Mortgage Professionals</h3>
             <p class="card__body">You're already generating demand for title insurance. Owning a RESPA-compliant title company adds revenue, deepens client relationships, and gives you control of the customer journey — without changing how you originate.</p>
-            <a class="card__cta" href="#book-call">Learn more</a>
+            <a class="card__cta" href="/qualify.html">See if you qualify</a>
           </article>
 
           <article class="card">
@@ -274,7 +333,7 @@
             </span>
             <h3 class="card__title">Real Estate Professionals</h3>
             <p class="card__body">You spend years cultivating clients and a referral base. A joint venture lets you earn additional revenue through every transaction you already touch — while staying focused on your clients, not on running a back office.</p>
-            <a class="card__cta" href="#book-call">Learn more</a>
+            <a class="card__cta" href="/qualify.html">See if you qualify</a>
           </article>
 
           <article class="card">
@@ -289,7 +348,7 @@
             </span>
             <h3 class="card__title">Builders &amp; Developers</h3>
             <p class="card__body">You're in the rare position to own the <em>master policy</em> for your developments — generating residual income for years. Attorneys can tack onto the master policy at resale, streamlining future closings and producing recurring revenue for the title company you own.</p>
-            <a class="card__cta" href="#book-call">Learn more</a>
+            <a class="card__cta" href="/qualify.html">See if you qualify</a>
           </article>
 
           <article class="card">
@@ -303,7 +362,7 @@
             </span>
             <h3 class="card__title">Title Professionals</h3>
             <p class="card__body">You already know the business. Put your experience to work for yourself. With your knowledge and our infrastructure — licensing, technology, compliance, staffing — we get you up and running fast, without the overhead of building it all from zero.</p>
-            <a class="card__cta" href="#book-call">Learn more</a>
+            <a class="card__cta" href="/qualify.html">See if you qualify</a>
           </article>
 
           <article class="card">
@@ -316,7 +375,7 @@
             </span>
             <h3 class="card__title">Entrepreneur</h3>
             <p class="card__body">Title insurance is a multi-billion-dollar industry that's projected to grow as the market shifts. Our turn-key program handles licensing, underwriter approvals, staff, technology, training and back-office — so you can build a scalable enterprise instead of fighting startup friction.</p>
-            <a class="card__cta" href="#book-call">Learn more</a>
+            <a class="card__cta" href="/qualify.html">See if you qualify</a>
           </article>
 
           <article class="card" style="background: var(--brand-primary); color: #fff; border-color: var(--brand-primary);">
@@ -327,9 +386,9 @@
                 <circle cx="12" cy="11" r="0.8" fill="currentColor"/>
               </svg>
             </span>
-            <h3 class="card__title" style="color:#fff;">Ready to talk it through?</h3>
-            <p class="card__body" style="color: rgba(255,255,255,0.9);">Tell us your role and we'll show you the path that fits — and the structure that makes it RESPA-compliant.</p>
-            <a class="btn btn--accent" href="mailto:info@ballantynetitle.com?subject=Joint Venture - Schedule a 15-min call" id="book-call">Schedule a call</a>
+            <h3 class="card__title" style="color:#fff;">Not sure where you fit?</h3>
+            <p class="card__body" style="color: rgba(255,255,255,0.9);">Complete the qualification review. We'll evaluate your production, market, and structure privately, then reach out only if there appears to be a fit.</p>
+            <a class="btn btn--accent" href="/qualify.html" id="book-call" data-cta="programs-qualify">Request JV Review</a>
           </article>
 
         </div>
@@ -341,22 +400,22 @@
       <div class="container">
         <div class="split split--lead">
           <div>
-            <p class="eyebrow">Why partner with us</p>
-            <h2>Why should you partner with Ballantyne Title?</h2>
-            <p>Ballantyne Title isn't just another franchise! We become a partner in your business, invested in your growth and success. Our unique turn-key approach allows us to provide a complete package, streamlining the set up process. With Ballantyne Title, you can own your own title company and receive a steady stream of income without worrying about the day-to-day operations.</p>
-            <p>Our team of experts will work with you to ensure that your new title business is set up for success. We provide all the tools and resources you need to get started, including training, marketing support, and ongoing assistance. Plus, with our proven track record of success, you can rest assured that you're in good hands.</p>
-            <p>Don't miss out on this opportunity to own your own title company and receive a steady stream of income. Contact us today to learn more about our turn-key business solution and how we can help you get started in the title industry.</p>
+            <p class="eyebrow">Why operators choose this structure</p>
+            <h2>An ownership relationship, not another vendor relationship.</h2>
+            <p>A title joint venture is structured as co-ownership of a real operating company. Qualified operators contribute the production already moving through their business; we contribute the licensing, underwriter contracts, technology, compliance framework, and day-to-day operations. Distributions are based on the company's profitability, not per-referral payments &mdash; which is what makes the structure compliant under RESPA Safe Harbor 8(c)(4).</p>
+            <p>The intent is to build long-term enterprise value tied to transactions you are already producing, with operational burden handled by experienced title-industry operators. It is not a side hustle, a franchise, or an arrangement that pays for referrals.</p>
+            <p>If your production, market, and structure appear to fit, we will schedule a private strategy call to walk through what the JV would look like for your specific business.</p>
           </div>
 
-          <ul class="trust-list" aria-label="What you get">
-            <li>Own your own title company</li>
-            <li>Turn-key joint venture, ready to scale</li>
-            <li>Business managed by our experts</li>
-            <li>Compliant with RESPA, NAR, and Department of Insurance</li>
-            <li>Receive profits from your ownership interest</li>
-            <li>Cutting-edge technology &amp; back-office support</li>
-            <li>Underwriter approvals &amp; licensing handled for you</li>
-            <li>Two decades of industry expertise behind you</li>
+          <ul class="trust-list" aria-label="What the JV structure provides">
+            <li>Co-ownership of a real operating LLC</li>
+            <li>Distributions tied to company profitability, not referrals</li>
+            <li>RESPA Safe Harbor 8(c)(4) compliant structure</li>
+            <li>State Department of Insurance licensing handled</li>
+            <li>National underwriter contracts in place</li>
+            <li>Technology stack, escrow, and back office operated for you</li>
+            <li>Licensed staff and compliance managed day-to-day</li>
+            <li>Two decades of title-industry operating experience</li>
           </ul>
         </div>
       </div>
@@ -397,12 +456,12 @@
     <section class="section">
       <div class="container">
         <div class="cta-band" style="background: linear-gradient(135deg, var(--brand-primary) 0%, #1a4a7a 100%); border: 1px solid rgba(255,255,255,0.06);">
-          <p class="eyebrow" style="color: var(--brand-secondary);">The Safe Harbor most people don't know about</p>
-          <h2 style="margin-bottom: 12px;">There's a structure that makes this 100% RESPA-compliant.<br>We'll show you on a 15-minute call.</h2>
-          <p style="max-width: 60ch; margin: 0 auto 28px;">Most title agents and lenders are surprised when we explain how simple this is. Bring your questions — we'll walk you through the exact ownership structure, the disclosures, and what makes it bulletproof under RESPA Safe Harbor.</p>
+          <p class="eyebrow" style="color: var(--brand-secondary);">Private qualification review</p>
+          <h2 style="margin-bottom: 12px;">If your production fits, we'll schedule a private strategy call.</h2>
+          <p style="max-width: 60ch; margin: 0 auto 28px;">The qualification review is a short structured form covering market, production, team size, and existing title relationships. We review submissions privately and only follow up if there appears to be a fit. There is no obligation.</p>
           <div class="btn-row">
-            <a class="btn btn--accent" href="mailto:info@ballantynetitle.com?subject=Joint Venture - Schedule a 15-min call">Book a 15-min walkthrough</a>
-            <a class="btn btn--white" href="mailto:info@ballantynetitle.com?subject=Joint Venture Inquiry">Email us instead</a>
+            <a class="btn btn--accent" href="/qualify.html" data-cta="midpage-qualify">See If You Qualify</a>
+            <a class="btn btn--white" href="/schedule.html" data-cta="midpage-schedule">Schedule Strategy Call</a>
           </div>
         </div>
       </div>
@@ -588,11 +647,12 @@
     <section class="section">
       <div class="container">
         <div class="cta-band">
-          <h2>Ready to own your own title company?</h2>
-          <p style="max-width: 56ch; margin: 0 auto 24px;">We'll walk you through the structure, the compliance and the math on a 15-minute call. Zero pressure — just answers.</p>
+          <h2>Capture revenue from transactions you are already producing.</h2>
+          <p style="max-width: 60ch; margin: 0 auto 24px;">Request a JV review. We'll evaluate your production, market, and structure privately and reach out only if there appears to be a fit.</p>
           <div class="btn-row">
-            <a class="btn btn--accent" href="mailto:info@ballantynetitle.com?subject=Joint Venture - Schedule a 15-min call">Schedule a call</a>
-            <a class="btn btn--white" href="tel:+17044673031">Call 704-467-3031</a>
+            <a class="btn btn--accent" href="/qualify.html" data-cta="footer-qualify">See If You Qualify</a>
+            <a class="btn btn--primary" href="/qualify.html?intent=review" data-cta="footer-review">Request JV Review</a>
+            <a class="btn btn--white" href="/schedule.html" data-cta="footer-schedule">Schedule Strategy Call</a>
           </div>
         </div>
       </div>
@@ -613,10 +673,11 @@
         <div>
           <h3 style="font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 14px;">On this page</h3>
           <ul>
-            <li><a href="#how-its-legal">How is this legal?</a></li>
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#respa">RESPA compliance</a></li>
-            <li><a href="#our-companies">Our companies</a></li>
+            <li><a href="/qualify.html">See if you qualify</a></li>
+            <li><a href="/schedule.html">Schedule strategy call</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#programs">Who qualifies</a></li>
+            <li><a href="#respa">Compliance</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="https://ballantynetitle.com/" rel="noopener">Main Ballantyne Title site &nbsp;↗</a></li>
           </ul>
