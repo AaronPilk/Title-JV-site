@@ -363,6 +363,28 @@
     var sourceFunnel = params.get('source') || 'homepage';
     var intent = params.get('intent') || 'qualify';
 
+    // Map source funnel to the default role we should pre-select on step 1.
+    // Visitors can still change it, but the audience page tells us their primary identity.
+    var sourceRoleMap = {
+      'mortgage-brokers': 'Mortgage Broker / Owner',
+      'real-estate': 'Real Estate Broker / Owner',
+      'top-producers': 'High-Producing Agent'
+    };
+    // Audience-page sources also lock the GHL tag regardless of what role they pick
+    // on step 1 — the page they came from is the authoritative segmentation signal.
+    var sourceTagMap = {
+      'mortgage-brokers': 'JV Mortgage Broker',
+      'real-estate': 'JV Real Estate Broker',
+      'top-producers': 'JV High-Producing Agent'
+    };
+
+    // Pre-select step 1 role based on source
+    var preselectRole = sourceRoleMap[sourceFunnel];
+    if (preselectRole) {
+      var preselectInput = form.querySelector('input[name="role"][value="' + preselectRole + '"]');
+      if (preselectInput) preselectInput.checked = true;
+    }
+
     function showStep(n) {
       steps.forEach(function(s){ s.classList.remove('is-active'); });
       var el = form.querySelector('[data-step="' + n + '"]');
@@ -434,7 +456,9 @@
       data.intent = intent;
       data.referrer = document.referrer || '';
       data.submitted_at = new Date().toISOString();
-      // Derive GHL tag from role
+      // Derive GHL tag. If they came from an audience landing page, that page
+      // is the authoritative segmentation signal — use the source's tag. Otherwise
+      // derive from the role they selected on step 1.
       var roleTagMap = {
         'Mortgage Broker / Owner': 'JV Mortgage Broker',
         'Producing Loan Officer': 'JV Mortgage Broker',
@@ -443,7 +467,7 @@
         'High-Producing Agent': 'JV High-Producing Agent',
         'Other': 'JV Other'
       };
-      data.lead_tag = roleTagMap[data.role] || 'JV Other';
+      data.lead_tag = sourceTagMap[sourceFunnel] || roleTagMap[data.role] || 'JV Other';
 
       form.style.display = 'none';
       submittingBox.classList.add('is-visible');
@@ -462,8 +486,21 @@
             gtag('event', 'conversion', { send_to: window.JV_PIXELS.GOOGLE_ADS_ID + '/' + window.JV_PIXELS.GOOGLE_ADS_LEAD_LABEL });
           }
         } catch(e){}
-        // Persist a copy locally so the thank-you page can greet by first name
-        try { sessionStorage.setItem('jv_lead_first_name', data.first_name || ''); } catch(e){}
+        // Persist lead info so the thank-you page can greet by name and the
+        // scheduler page can pre-fill the GHL booking widget without re-typing.
+        try {
+          sessionStorage.setItem('jv_lead', JSON.stringify({
+            first_name: data.first_name || '',
+            last_name: data.last_name || '',
+            email: data.email || '',
+            phone: data.phone || '',
+            company: data.company || '',
+            role: data.role || '',
+            submitted_at: data.submitted_at || ''
+          }));
+          // Keep the old key for back-compat with the thank-you greeting
+          sessionStorage.setItem('jv_lead_first_name', data.first_name || '');
+        } catch(e){}
         window.location.href = '/thank-you.html';
       })
       .catch(function(){

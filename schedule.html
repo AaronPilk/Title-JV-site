@@ -57,12 +57,15 @@
   })();
   </script>
 
-  <!-- Calendar config — replace SCHEDULER_URL with the real Calendly / GHL booking link -->
+  <!-- GHL booking widget URL.
+       Get this from GHL: Calendars → pick the calendar → Share → "Permanent Link".
+       Looks like: https://api.leadconnectorhq.com/widget/booking/XXXXXXXX
+                or https://link.msgsndr.com/widget/booking/XXXXXXXX
+       Pre-fill params (first_name, last_name, email, phone) are appended automatically
+       when the visitor came from the qualifier. -->
   <script>
     window.JV_SCHEDULER = {
-      // EXAMPLES: 'https://calendly.com/richard-tocado/jv-strategy-call'
-      //           'https://api.leadconnectorhq.com/widget/booking/XXXXXXXX'
-      SCHEDULER_URL: 'REPLACE_WITH_SCHEDULER_URL'
+      SCHEDULER_URL: 'REPLACE_WITH_GHL_BOOKING_URL'
     };
   </script>
 
@@ -108,10 +111,20 @@
       </div>
 
       <div class="sched-frame" id="sched-frame">
-        <div class="sched-placeholder" id="sched-placeholder">
-          <h3>Scheduler is being connected.</h3>
-          <p>Richard's booking calendar will be embedded here. In the meantime, request a JV review and we will reach out to schedule directly.</p>
-          <a class="btn btn--accent" href="/qualify.html">Request JV Review</a>
+        <!-- Fallback for leads who already qualified — we have their info, just promise the link -->
+        <div class="sched-placeholder" id="sched-placeholder-returning" style="display:none;">
+          <div style="width:56px;height:56px;border-radius:999px;background:rgba(0,48,91,0.06);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00305B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <h3 id="returning-greeting">Your info is on file.</h3>
+          <p>Richard's calendar is being finalized. We'll email a private booking link within one business day &mdash; usually faster. No need to fill anything out again.</p>
+          <a class="btn btn--ghost" href="/">Back to overview</a>
+        </div>
+        <!-- Fallback for first-time visitors who haven't qualified yet -->
+        <div class="sched-placeholder" id="sched-placeholder-first" style="display:none;">
+          <h3>Start with a brief qualification review.</h3>
+          <p>We use a short structured review &mdash; market, production, team size &mdash; to make the strategy call useful for both sides. It takes about 90 seconds.</p>
+          <a class="btn btn--accent" href="/qualify.html">See If You Qualify</a>
         </div>
       </div>
     </div>
@@ -119,17 +132,53 @@
 
   <script>
     (function(){
-      var url = window.JV_SCHEDULER && window.JV_SCHEDULER.SCHEDULER_URL;
-      if (!url || url.indexOf('REPLACE') !== -1) return;
       var frame = document.getElementById('sched-frame');
-      var placeholder = document.getElementById('sched-placeholder');
-      if (placeholder) placeholder.remove();
-      var iframe = document.createElement('iframe');
-      iframe.src = url;
-      iframe.title = 'Schedule a strategy call';
-      iframe.allow = 'fullscreen';
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
-      frame.appendChild(iframe);
+      var firstTime = document.getElementById('sched-placeholder-first');
+      var returning = document.getElementById('sched-placeholder-returning');
+      var greeting = document.getElementById('returning-greeting');
+
+      // Pull stashed lead data from the qualifier (sessionStorage) and URL params
+      var lead = {};
+      try { lead = JSON.parse(sessionStorage.getItem('jv_lead') || '{}'); } catch(e){}
+      var params = new URLSearchParams(window.location.search);
+      ['first_name','last_name','email','phone','company'].forEach(function(k){
+        if (params.get(k)) lead[k] = params.get(k);
+      });
+      var hasLead = !!(lead.email && lead.first_name);
+
+      var url = window.JV_SCHEDULER && window.JV_SCHEDULER.SCHEDULER_URL;
+      var hasScheduler = url && url.indexOf('REPLACE') === -1;
+
+      // Case 1 — scheduler URL is set: embed the calendar with prefill params.
+      // GHL booking widget reads ?first_name=&last_name=&email=&phone= and pre-fills the contact form.
+      if (hasScheduler) {
+        var prefill = '';
+        if (hasLead) {
+          var sep = url.indexOf('?') === -1 ? '?' : '&';
+          var qs = [];
+          ['first_name','last_name','email','phone'].forEach(function(k){
+            if (lead[k]) qs.push(k + '=' + encodeURIComponent(lead[k]));
+          });
+          if (qs.length) prefill = sep + qs.join('&');
+        }
+        var iframe = document.createElement('iframe');
+        iframe.src = url + prefill;
+        iframe.title = 'Schedule a strategy call';
+        iframe.allow = 'fullscreen';
+        iframe.referrerPolicy = 'no-referrer-when-downgrade';
+        frame.appendChild(iframe);
+        return;
+      }
+
+      // Case 2 — no scheduler URL yet. Pick the right fallback.
+      if (hasLead) {
+        if (lead.first_name) {
+          greeting.textContent = 'Your info is on file, ' + lead.first_name + '.';
+        }
+        returning.style.display = 'block';
+      } else {
+        firstTime.style.display = 'block';
+      }
     })();
   </script>
 
