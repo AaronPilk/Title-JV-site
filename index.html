@@ -205,6 +205,7 @@
 
       <nav class="nav" aria-label="Primary">
         <ul class="nav__list">
+          <li><a class="nav__link" href="/">Home</a></li>
           <li><a class="nav__link" href="#how-it-works">How it works</a></li>
           <li><a class="nav__link" href="#programs">Who qualifies</a></li>
           <li><a class="nav__link" href="#respa">Compliance</a></li>
@@ -228,32 +229,33 @@
       </button>
     </div>
 
-    <!-- Mobile overlay menu -->
-    <div class="mobile-menu" id="mobile-menu" data-mobile-menu data-open="false" aria-hidden="true">
-      <div class="container">
-        <div class="mobile-menu__head">
-          <a href="/" class="site-header__brand">
-            <img src="assets/logo.svg" alt="Ballantyne Title Company" class="site-header__logo" width="180" height="48">
-          </a>
-          <button class="mobile-menu__close" aria-label="Close menu" data-nav-close>×</button>
-        </div>
-        <p style="margin: 0 0 8px; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(0,48,91,0.55);">Apply Now</p>
-        <ul class="mobile-menu__list">
-          <li><a class="mobile-menu__link" href="/jointventure/realtor">Real Estate</a></li>
-          <li><a class="mobile-menu__link" href="/jointventure/mortgage">Mortgage Broker</a></li>
-          <li><a class="mobile-menu__link" href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
-          <li><a class="mobile-menu__link" href="#how-it-works">How it works</a></li>
-          <li><a class="mobile-menu__link" href="#respa">Compliance</a></li>
-          <li><a class="mobile-menu__link" href="#faq">FAQ</a></li>
-        </ul>
-        <div class="mobile-menu__contact">
-          <p><strong>Call us today:</strong> <a href="tel:+17044673031">704-467-3031</a></p>
-          <p><strong>Nights &amp; weekends:</strong> <a href="tel:+17043709515">704-370-9515</a></p>
-          <p><a href="mailto:info@ballantynetitle.com">info@ballantynetitle.com</a></p>
-        </div>
+  </header>
+
+  <!-- Mobile overlay menu — sibling of <header> so position:fixed escapes the header's backdrop-filter containing block -->
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu data-open="false" aria-hidden="true">
+    <div class="container">
+      <div class="mobile-menu__head">
+        <a href="/" class="site-header__brand">
+          <img src="assets/logo.svg" alt="Ballantyne Title Company" class="site-header__logo" width="180" height="48">
+        </a>
+        <button class="mobile-menu__close" aria-label="Close menu" data-nav-close>×</button>
+      </div>
+      <ul class="mobile-menu__list">
+        <li><a class="mobile-menu__link" href="/">Home</a></li>
+        <li><a class="mobile-menu__link" href="/jointventure/realtor">Real Estate</a></li>
+        <li><a class="mobile-menu__link" href="/jointventure/mortgage">Mortgage Broker</a></li>
+        <li><a class="mobile-menu__link" href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
+        <li><a class="mobile-menu__link" href="/#how-it-works">How it works</a></li>
+        <li><a class="mobile-menu__link" href="/#respa">Compliance</a></li>
+        <li><a class="mobile-menu__link" href="/#faq">FAQ</a></li>
+      </ul>
+      <div class="mobile-menu__contact">
+        <p><strong>Call us today:</strong> <a href="tel:+17044673031">704-467-3031</a></p>
+        <p><strong>Nights &amp; weekends:</strong> <a href="tel:+17043709515">704-370-9515</a></p>
+        <p><a href="mailto:info@ballantynetitle.com">info@ballantynetitle.com</a></p>
       </div>
     </div>
-  </header>
+  </div>
 
   <main>
 

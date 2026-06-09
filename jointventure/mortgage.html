@@ -94,6 +94,7 @@
       </a>
       <nav class="nav" aria-label="Primary">
         <ul class="nav__list">
+          <li><a class="nav__link" href="/">Home</a></li>
           <li><a class="nav__link" href="/#how-it-works">How it works</a></li>
           <li><a class="nav__link" href="/#respa">Compliance</a></li>
           <li><a class="nav__link" href="/#faq">FAQ</a></li>
@@ -104,24 +105,27 @@
         <span class="nav-toggle__bar" aria-hidden="true"></span>
       </button>
     </div>
-    <div class="mobile-menu" id="mobile-menu" data-mobile-menu data-open="false" aria-hidden="true">
-      <div class="container">
-        <div class="mobile-menu__head">
-          <a href="/" class="site-header__brand"><img src="/assets/logo.svg" alt="Ballantyne Title" class="site-header__logo" width="180" height="48"></a>
-          <button class="mobile-menu__close" aria-label="Close menu" data-nav-close>×</button>
-        </div>
-        <ul class="mobile-menu__list">
-          <li><a class="mobile-menu__link" href="/jointventure/realtor">Real Estate</a></li>
-          <li><a class="mobile-menu__link" href="/jointventure/mortgage">Mortgage Broker</a></li>
-          <li><a class="mobile-menu__link" href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
-          <li><a class="mobile-menu__link" href="/#how-it-works">How it works</a></li>
-          <li><a class="mobile-menu__link" href="/#respa">Compliance</a></li>
-          <li><a class="mobile-menu__link" href="/#faq">FAQ</a></li>
-        </ul>
-        <a class="btn btn--primary btn--block mobile-menu__cta" href="#consultation">Schedule Consultation</a>
-      </div>
-    </div>
   </header>
+
+  <!-- Mobile overlay menu — sibling of <header> -->
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu data-open="false" aria-hidden="true">
+    <div class="container">
+      <div class="mobile-menu__head">
+        <a href="/" class="site-header__brand"><img src="/assets/logo.svg" alt="Ballantyne Title" class="site-header__logo" width="180" height="48"></a>
+        <button class="mobile-menu__close" aria-label="Close menu" data-nav-close>×</button>
+      </div>
+      <ul class="mobile-menu__list">
+        <li><a class="mobile-menu__link" href="/">Home</a></li>
+        <li><a class="mobile-menu__link" href="/jointventure/realtor">Real Estate</a></li>
+        <li><a class="mobile-menu__link" href="/jointventure/mortgage">Mortgage Broker</a></li>
+        <li><a class="mobile-menu__link" href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
+        <li><a class="mobile-menu__link" href="/#how-it-works">How it works</a></li>
+        <li><a class="mobile-menu__link" href="/#respa">Compliance</a></li>
+        <li><a class="mobile-menu__link" href="/#faq">FAQ</a></li>
+      </ul>
+      <a class="btn btn--primary btn--block mobile-menu__cta" href="#consultation">Schedule Consultation</a>
+    </div>
+  </div>
 
   <main>
 
