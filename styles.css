@@ -1577,3 +1577,130 @@ video.video-frame,
   color: rgba(0,48,91,0.55);
   line-height: 1.5;
 }
+
+/* =========================================================================
+   Hero earnings widget — inline slider + glowing result
+   Lives directly under the trust-list on each /jointventure/* hero
+   ========================================================================= */
+.hero-earn {
+  margin-top: 24px;
+  padding: 20px 22px 22px;
+  background: rgba(0, 48, 91, 0.04);
+  border: 1px solid rgba(0, 48, 91, 0.1);
+  border-radius: 14px;
+}
+.hero-earn__prompt {
+  margin: 0 0 14px;
+  font-weight: 600;
+  font-size: 0.96rem;
+  color: var(--brand-primary);
+  line-height: 1.4;
+}
+.hero-earn__control {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.hero-earn__field {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid rgba(0, 48, 91, 0.15);
+  border-radius: 10px;
+  padding: 0 12px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.hero-earn__field:focus-within {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 4px rgba(0, 48, 91, 0.08);
+}
+.hero-earn__currency {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: rgba(0, 48, 91, 0.5);
+  padding-right: 4px;
+}
+.hero-earn__field input {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  padding: 13px 4px;
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  outline: none;
+  min-width: 0;
+}
+.hero-earn__slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, rgba(0,48,91,0.6) 0%, rgba(0,48,91,0.15) 100%);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+}
+.hero-earn__slider:focus { outline: none; }
+.hero-earn__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--brand-primary);
+  cursor: grab;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 14px rgba(0, 48, 91, 0.35);
+  transition: transform 0.12s ease;
+}
+.hero-earn__slider::-webkit-slider-thumb:hover { transform: scale(1.1); }
+.hero-earn__slider::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.15); }
+.hero-earn__slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--brand-primary);
+  cursor: grab;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 14px rgba(0, 48, 91, 0.35);
+}
+.hero-earn__result {
+  text-align: center;
+  padding-top: 4px;
+}
+.hero-earn__result-label {
+  margin: 0 0 6px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0, 48, 91, 0.6);
+  font-weight: 600;
+}
+.hero-earn__result-value {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw + 0.7rem, 2.6rem);
+  font-weight: 700;
+  color: #1faa5e;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  text-shadow:
+    0 0 18px rgba(31, 170, 94, 0.55),
+    0 0 36px rgba(31, 170, 94, 0.32);
+  animation: jv-earn-glow 3.2s ease-in-out infinite;
+}
+@keyframes jv-earn-glow {
+  0%, 100% {
+    text-shadow: 0 0 18px rgba(31, 170, 94, 0.55), 0 0 36px rgba(31, 170, 94, 0.32);
+  }
+  50% {
+    text-shadow: 0 0 26px rgba(31, 170, 94, 0.75), 0 0 52px rgba(31, 170, 94, 0.48);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-earn__result-value { animation: none; }
+}

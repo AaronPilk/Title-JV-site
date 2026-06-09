@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css?v=20260609">
 
   <script>
     window.JV_PIXELS = {
@@ -139,6 +139,21 @@
               <li>What the revenue looks like at your monthly loan volume</li>
               <li>Whether your company and market may qualify</li>
             </ul>
+
+            <div class="hero-earn">
+              <p class="hero-earn__prompt">How much title insurance are you closing each month?</p>
+              <div class="hero-earn__control">
+                <div class="hero-earn__field">
+                  <span class="hero-earn__currency" aria-hidden="true">$</span>
+                  <input type="text" id="earn-input" inputmode="decimal" value="25,000" aria-label="Monthly title insurance amount">
+                </div>
+                <input type="range" id="earn-slider" class="hero-earn__slider" min="0" max="200000" step="1000" value="25000" aria-label="Adjust monthly title insurance amount">
+              </div>
+              <div class="hero-earn__result">
+                <p class="hero-earn__result-label">You could be earning</p>
+                <p class="hero-earn__result-value" id="earn-output">$7,750 / month</p>
+              </div>
+            </div>
           </div>
 
           <aside id="consultation" class="lp-form-card">
@@ -271,36 +286,6 @@
       </div>
     </section>
 
-    <!-- Earnings calculator -->
-    <section class="section lp-section">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Estimate your potential earnings</p>
-          <h2>What a 31% ownership share could look like for your mortgage business.</h2>
-          <p class="lead" style="margin-inline:auto;">Enter the monthly title insurance premium your purchase closings already generate. The calculator shows an illustrative monthly and annual distribution at a 31% ownership share.</p>
-        </div>
-        <div class="jv-calc">
-          <div class="jv-calc__field">
-            <label for="calc-input">Monthly title insurance premium your closings generate</label>
-            <div class="jv-calc__input-wrap">
-              <input type="text" id="calc-input" inputmode="decimal" placeholder="25,000" value="25000">
-            </div>
-            <p class="jv-calc__hint">Don&rsquo;t know the figure? Estimate: monthly purchase closings &times; average title premium in your market (often ~$1,500&ndash;$3,500 per closing, depending on loan size).</p>
-          </div>
-          <div class="jv-calc__output">
-            <div class="jv-calc__line">
-              <span class="jv-calc__label">Illustrative monthly distribution (31%)</span>
-              <span class="jv-calc__value" id="calc-monthly">$7,750</span>
-            </div>
-            <div class="jv-calc__line">
-              <span class="jv-calc__label">Annualized (&times; 12)</span>
-              <span class="jv-calc__value" id="calc-annual">$93,000</span>
-            </div>
-          </div>
-          <p class="jv-calc__disclaimer">Illustrative only. Actual distributions depend on the operating company&rsquo;s profitability, your ownership percentage, market conditions, ramp timing, and the specific structure agreed upon. We build a specific model for your mortgage business on the discovery call using your actual production data as the input.</p>
-        </div>
-      </div>
-    </section>
 
     <!-- Ballantyne Background -->
     <section class="section section--soft lp-section">
@@ -371,22 +356,37 @@
       window.addEventListener('pagehide', function(){ document.body.style.overflow = ''; });
     })();
 
-    // Earnings calculator — 31% of monthly premium
+    // Hero earnings widget — slider + input stay in sync, output glows green
     (function(){
-      var input = document.getElementById('calc-input');
-      var monthly = document.getElementById('calc-monthly');
-      var annual = document.getElementById('calc-annual');
-      if (!input || !monthly || !annual) return;
-      function format(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
-      function calc(){
-        var raw = (input.value || '').replace(/[^0-9.]/g, '');
-        var v = parseFloat(raw) || 0;
-        var m = v * 0.31;
-        monthly.textContent = format(m);
-        annual.textContent = format(m * 12);
+      var input = document.getElementById('earn-input');
+      var slider = document.getElementById('earn-slider');
+      var output = document.getElementById('earn-output');
+      if (!input || !slider || !output) return;
+      var SHARE = 0.31;
+      function num(n) { return Math.round(n).toLocaleString('en-US'); }
+      function render(value) {
+        var v = Math.max(0, parseFloat(value) || 0);
+        output.textContent = '$' + num(v * SHARE) + ' / month';
       }
-      input.addEventListener('input', calc);
-      calc();
+      function syncFromSlider() {
+        var v = parseFloat(slider.value) || 0;
+        input.value = num(v);
+        render(v);
+      }
+      function syncFromInput() {
+        var raw = (input.value || '').replace(/[^0-9.]/g, '');
+        var v = Math.max(0, parseFloat(raw) || 0);
+        var max = parseFloat(slider.max);
+        slider.value = Math.min(v, max);
+        render(v);
+      }
+      slider.addEventListener('input', syncFromSlider);
+      input.addEventListener('input', syncFromInput);
+      input.addEventListener('blur', function(){
+        var raw = (input.value || '').replace(/[^0-9.]/g, '');
+        input.value = num(parseFloat(raw) || 0);
+      });
+      syncFromSlider();
     })();
 
     (function(){
