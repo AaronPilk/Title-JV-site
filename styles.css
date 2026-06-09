@@ -1126,6 +1126,7 @@ video.video-frame,
   padding: 18px;
   text-align: center;
   font-size: 0.92rem;
+  color: var(--brand-primary);
 }
 .affiliated-card strong {
   display: block;
@@ -1139,7 +1140,17 @@ video.video-frame,
   margin-top: 8px;
   font-weight: 500;
   word-break: break-word;
+  color: var(--brand-primary);
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 48, 91, 0.35);
+  text-underline-offset: 3px;
 }
+.affiliated-card a:hover,
+.affiliated-card a:focus-visible {
+  color: var(--brand-secondary);
+  text-decoration-color: var(--brand-secondary);
+}
+.affiliated-card a:visited { color: var(--brand-primary); }
 
 .cta-band {
   background: var(--brand-primary);
