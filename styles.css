@@ -1429,3 +1429,151 @@ video.video-frame,
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================================
+   Apply Now dropdown — desktop nav
+   ========================================================================= */
+.nav__dropdown { position: relative; }
+.nav__dropdown [data-dropdown-toggle] {
+  display: inline-flex; align-items: center; gap: 6px;
+  cursor: pointer;
+}
+.nav__dropdown .dropdown-caret {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  font-size: 0.7em;
+  line-height: 1;
+}
+.nav__dropdown[data-open="true"] .dropdown-caret { transform: rotate(180deg); }
+.nav__dropdown .dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 280px;
+  background: #fff;
+  border: 1px solid rgba(0,48,91,0.1);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px -20px rgba(0,48,91,0.25);
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 50;
+}
+.nav__dropdown[data-open="true"] .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.nav__dropdown .dropdown-menu li { margin: 0; }
+.nav__dropdown .dropdown-menu a {
+  display: block;
+  padding: 12px 14px;
+  color: var(--brand-primary);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.nav__dropdown .dropdown-menu a:hover,
+.nav__dropdown .dropdown-menu a:focus-visible {
+  background: rgba(0,48,91,0.06);
+  color: var(--brand-primary);
+  outline: none;
+}
+
+/* =========================================================================
+   Earnings calculator — used on each /jointventure/* landing page
+   ========================================================================= */
+.jv-calc {
+  background: #fff;
+  border: 1px solid rgba(0,48,91,0.08);
+  border-radius: var(--radius-lg, 16px);
+  padding: clamp(28px, 4vw, 40px);
+  box-shadow: 0 24px 60px -30px rgba(0,48,91,0.25);
+  max-width: 720px;
+  margin: 0 auto;
+}
+.jv-calc__field { margin-bottom: 20px; }
+.jv-calc__field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--brand-primary);
+  font-size: 0.96rem;
+}
+.jv-calc__input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.jv-calc__input-wrap::before {
+  content: "$";
+  position: absolute;
+  left: 16px;
+  color: rgba(0,48,91,0.5);
+  font-weight: 600;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+.jv-calc__field input {
+  width: 100%;
+  padding: 14px 16px 14px 32px;
+  border: 1.5px solid rgba(0,48,91,0.15);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  background: #fff;
+}
+.jv-calc__field input:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 4px rgba(0,48,91,0.08);
+}
+.jv-calc__hint {
+  margin: 8px 0 0;
+  font-size: 0.82rem;
+  color: rgba(0,48,91,0.6);
+  line-height: 1.4;
+}
+.jv-calc__output {
+  background: linear-gradient(135deg, var(--brand-primary) 0%, #1a4a7a 100%);
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.jv-calc__line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.jv-calc__line:last-child { border-bottom: 0; }
+.jv-calc__label {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+.jv-calc__value {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2vw + 0.5rem, 1.8rem);
+  font-weight: 700;
+  color: #fff;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.jv-calc__disclaimer {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(0,48,91,0.55);
+  line-height: 1.5;
+}

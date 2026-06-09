@@ -123,9 +123,9 @@
           <button class="mobile-menu__close" aria-label="Close menu" data-nav-close>×</button>
         </div>
         <ul class="mobile-menu__list">
-          <li><a class="mobile-menu__link" href="/jointventure/realtor">Real Estate JV</a></li>
-          <li><a class="mobile-menu__link" href="/jointventure/mortgage">Mortgage JV</a></li>
-          <li><a class="mobile-menu__link" href="/jointventure/entrepreneur">Entrepreneur JV</a></li>
+          <li><a class="mobile-menu__link" href="/jointventure/realtor">Real Estate</a></li>
+          <li><a class="mobile-menu__link" href="/jointventure/mortgage">Mortgage Broker</a></li>
+          <li><a class="mobile-menu__link" href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
           <li><a class="mobile-menu__link" href="/#how-it-works">How it works</a></li>
           <li><a class="mobile-menu__link" href="/#respa">Compliance</a></li>
           <li><a class="mobile-menu__link" href="/#faq">FAQ</a></li>
@@ -286,13 +286,34 @@
       </div>
     </section>
 
-    <!-- Revenue Potential -->
+    <!-- Earnings calculator -->
     <section class="section lp-section">
-      <div class="container" style="max-width: 880px;">
-        <p class="eyebrow">Revenue potential</p>
-        <h2>The economics are tied to your actual transaction volume.</h2>
-        <p>Title insurance premium is tied to transaction value, so the revenue model depends on your brokerage&rsquo;s annual side count and your market&rsquo;s average price point. Rather than publish a generic range, we build a specific economic model for your business on the discovery call &mdash; using your actual transaction history as the input. That model is shared in writing so you can evaluate it independently.</p>
-        <p>The model covers expected premium volume, distribution cadence, ramp time from agreement to first closing (typically 60 to 120 days), and the ongoing operational structure. We do not publish hypothetical numbers because they tend to overstate or understate what an individual brokerage would actually see.</p>
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Estimate your potential earnings</p>
+          <h2>What a 31% ownership share could look like for your brokerage.</h2>
+          <p class="lead" style="margin-inline:auto;">Enter the monthly title insurance premium your brokerage&rsquo;s closings already generate. The calculator shows an illustrative monthly and annual distribution at a 31% ownership share.</p>
+        </div>
+        <div class="jv-calc">
+          <div class="jv-calc__field">
+            <label for="calc-input">Monthly title insurance premium your closings generate</label>
+            <div class="jv-calc__input-wrap">
+              <input type="text" id="calc-input" inputmode="decimal" placeholder="25,000" value="25000">
+            </div>
+            <p class="jv-calc__hint">Don&rsquo;t know the figure? Estimate: monthly closed sides &times; average title premium in your market (often ~$1,500&ndash;$3,500 per side, depending on price point).</p>
+          </div>
+          <div class="jv-calc__output">
+            <div class="jv-calc__line">
+              <span class="jv-calc__label">Illustrative monthly distribution (31%)</span>
+              <span class="jv-calc__value" id="calc-monthly">$7,750</span>
+            </div>
+            <div class="jv-calc__line">
+              <span class="jv-calc__label">Annualized (&times; 12)</span>
+              <span class="jv-calc__value" id="calc-annual">$93,000</span>
+            </div>
+          </div>
+          <p class="jv-calc__disclaimer">Illustrative only. Actual distributions depend on the operating company&rsquo;s profitability, your ownership percentage, market conditions, ramp timing, and the specific structure agreed upon. We build a specific model for your brokerage on the discovery call using your actual transaction history as the input.</p>
+        </div>
       </div>
     </section>
 
@@ -331,9 +352,9 @@
         <div>
           <h3 style="font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 14px;">JV Program</h3>
           <ul>
-            <li><a href="/jointventure/realtor">Real Estate JV</a></li>
-            <li><a href="/jointventure/mortgage">Mortgage JV</a></li>
-            <li><a href="/jointventure/entrepreneur">Entrepreneur JV</a></li>
+            <li><a href="/jointventure/realtor">Real Estate</a></li>
+            <li><a href="/jointventure/mortgage">Mortgage Broker</a></li>
+            <li><a href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
             <li><a href="/">Program overview</a></li>
           </ul>
         </div>
@@ -364,6 +385,24 @@
       menu.addEventListener('click', function(e){ if (e.target === menu) shut(); });
       document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && isOpen()) shut(); });
       window.addEventListener('pagehide', function(){ document.body.style.overflow = ''; });
+    })();
+
+    // Earnings calculator — 31% of monthly premium
+    (function(){
+      var input = document.getElementById('calc-input');
+      var monthly = document.getElementById('calc-monthly');
+      var annual = document.getElementById('calc-annual');
+      if (!input || !monthly || !annual) return;
+      function format(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+      function calc(){
+        var raw = (input.value || '').replace(/[^0-9.]/g, '');
+        var v = parseFloat(raw) || 0;
+        var m = v * 0.31;
+        monthly.textContent = format(m);
+        annual.textContent = format(m * 12);
+      }
+      input.addEventListener('input', calc);
+      calc();
     })();
 
     // Form submission

@@ -209,7 +209,17 @@
           <li><a class="nav__link" href="#programs">Who qualifies</a></li>
           <li><a class="nav__link" href="#respa">Compliance</a></li>
           <li><a class="nav__link" href="#faq">FAQ</a></li>
-          <li class="nav__cta"><a class="btn btn--primary" href="#programs" data-cta="nav-funnel">Find Your Funnel</a></li>
+          <li class="nav__cta nav__dropdown" data-dropdown>
+            <button type="button" class="btn btn--primary" data-dropdown-toggle aria-haspopup="true" aria-expanded="false">
+              Apply Now
+              <span class="dropdown-caret" aria-hidden="true">&#9662;</span>
+            </button>
+            <ul class="dropdown-menu" data-dropdown-menu role="menu">
+              <li role="none"><a role="menuitem" href="/jointventure/realtor" data-cta="nav-realtor">Real Estate</a></li>
+              <li role="none"><a role="menuitem" href="/jointventure/mortgage" data-cta="nav-mortgage">Mortgage Broker</a></li>
+              <li role="none"><a role="menuitem" href="/jointventure/entrepreneur" data-cta="nav-entrepreneur">Entrepreneur / Real Estate Investor</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
 
@@ -227,15 +237,15 @@
           </a>
           <button class="mobile-menu__close" aria-label="Close menu" data-nav-close>×</button>
         </div>
+        <p style="margin: 0 0 8px; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(0,48,91,0.55);">Apply Now</p>
         <ul class="mobile-menu__list">
-          <li><a class="mobile-menu__link" href="/jointventure/realtor">Real Estate JV</a></li>
-          <li><a class="mobile-menu__link" href="/jointventure/mortgage">Mortgage JV</a></li>
-          <li><a class="mobile-menu__link" href="/jointventure/entrepreneur">Entrepreneur JV</a></li>
+          <li><a class="mobile-menu__link" href="/jointventure/realtor">Real Estate</a></li>
+          <li><a class="mobile-menu__link" href="/jointventure/mortgage">Mortgage Broker</a></li>
+          <li><a class="mobile-menu__link" href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
           <li><a class="mobile-menu__link" href="#how-it-works">How it works</a></li>
           <li><a class="mobile-menu__link" href="#respa">Compliance</a></li>
           <li><a class="mobile-menu__link" href="#faq">FAQ</a></li>
         </ul>
-        <a class="btn btn--primary btn--block mobile-menu__cta" href="#programs" data-cta="mobile-funnel">Find Your Funnel</a>
         <div class="mobile-menu__contact">
           <p><strong>Call us today:</strong> <a href="tel:+17044673031">704-467-3031</a></p>
           <p><strong>Nights &amp; weekends:</strong> <a href="tel:+17043709515">704-370-9515</a></p>
@@ -256,11 +266,10 @@
             <h1 class="hero__title" style="font-size: clamp(1.85rem, 3.6vw + 0.75rem, 3rem); margin-bottom: 18px;">Capture Revenue You&rsquo;re Already Creating.</h1>
             <p class="hero__sub" style="margin-bottom: 28px;">Real estate teams, mortgage operators, and investors with capital or relationships may participate in title revenue through a properly structured Affiliated Business Arrangement under RESPA Safe Harbor 8(c)(4). Choose the track that fits.</p>
             <div class="btn-row" style="flex-wrap: wrap; gap: 10px;">
-              <a class="btn btn--accent" href="/jointventure/realtor" data-cta="hero-realtor">Real Estate JV</a>
-              <a class="btn btn--primary" href="/jointventure/mortgage" data-cta="hero-mortgage">Mortgage JV</a>
-              <a class="btn btn--ghost" href="/jointventure/entrepreneur" data-cta="hero-entrepreneur">Entrepreneur JV</a>
+              <a class="btn btn--accent" href="/jointventure/realtor" data-cta="hero-realtor">Real Estate</a>
+              <a class="btn btn--primary" href="/jointventure/mortgage" data-cta="hero-mortgage">Mortgage Broker</a>
+              <a class="btn btn--ghost" href="/jointventure/entrepreneur" data-cta="hero-entrepreneur">Entrepreneur / Real Estate Investor</a>
             </div>
-            <p style="margin-top:14px; font-size:0.88rem; color: rgba(0,48,91,0.6);">Each track has its own landing page, form, and discovery call workflow.</p>
           </div>
 
           <aside class="hero__art" aria-label="Joint Venture program highlight video">
@@ -320,9 +329,9 @@
                 <circle cx="12" cy="16" r="0.6" fill="currentColor"/>
               </svg>
             </span>
-            <h3 class="card__title">Mortgage JV</h3>
+            <h3 class="card__title">Mortgage Broker</h3>
             <p class="card__body">For independent mortgage brokers, branch managers, and mortgage company owners. Every purchase loan generates title premium &mdash; explore whether your company may participate in it through a compliant JV structure.</p>
-            <a class="card__cta" href="/jointventure/mortgage" data-cta="card-mortgage">Explore Mortgage JV &rarr;</a>
+            <a class="card__cta" href="/jointventure/mortgage" data-cta="card-mortgage">Explore this track &rarr;</a>
           </article>
 
           <article class="card">
@@ -333,9 +342,9 @@
                 <path d="M5 10 V20 H11 V14 H13 V20 H19 V10"/>
               </svg>
             </span>
-            <h3 class="card__title">Real Estate JV</h3>
+            <h3 class="card__title">Real Estate</h3>
             <p class="card__body">For independent brokers, team leaders, brokerage owners, and high-producing agents. The track most teams enter through &mdash; explore the structure that lets you own a share of the title revenue your business helps generate.</p>
-            <a class="card__cta" href="/jointventure/realtor" data-cta="card-realtor">Explore Real Estate JV &rarr;</a>
+            <a class="card__cta" href="/jointventure/realtor" data-cta="card-realtor">Explore this track &rarr;</a>
           </article>
 
           <article class="card">
@@ -348,9 +357,9 @@
                 <circle cx="18" cy="12" r="0.7" fill="currentColor"/>
               </svg>
             </span>
-            <h3 class="card__title">Entrepreneur JV</h3>
-            <p class="card__body">For business owners, investors, attorneys, and financial professionals coming at title from outside the industry. The track for partners who bring capital, referral relationships, or both &mdash; without becoming a realtor or loan officer.</p>
-            <a class="card__cta" href="/jointventure/entrepreneur" data-cta="card-entrepreneur">Explore Entrepreneur JV &rarr;</a>
+            <h3 class="card__title">Entrepreneur / Real Estate Investor</h3>
+            <p class="card__body">For real estate investors, business owners, attorneys, and financial professionals coming at title from outside the lender/agent side. For partners who bring capital, referral relationships, or both &mdash; without becoming a realtor or loan officer.</p>
+            <a class="card__cta" href="/jointventure/entrepreneur" data-cta="card-entrepreneur">Explore this track &rarr;</a>
           </article>
 
           <article class="card" style="background: var(--brand-primary); color: #fff; border-color: var(--brand-primary);">
@@ -435,9 +444,9 @@
           <h2 style="margin-bottom: 12px;">Pick the JV track that matches your business.</h2>
           <p style="max-width: 60ch; margin: 0 auto 28px;">Each track has its own short form and its own discovery call workflow. Submissions are reviewed privately. No obligation.</p>
           <div class="btn-row" style="flex-wrap: wrap; gap: 10px;">
-            <a class="btn btn--accent" href="/jointventure/realtor" data-cta="midpage-realtor">Real Estate JV</a>
-            <a class="btn btn--white" href="/jointventure/mortgage" data-cta="midpage-mortgage">Mortgage JV</a>
-            <a class="btn btn--white" href="/jointventure/entrepreneur" data-cta="midpage-entrepreneur">Entrepreneur JV</a>
+            <a class="btn btn--accent" href="/jointventure/realtor" data-cta="midpage-realtor">Real Estate</a>
+            <a class="btn btn--white" href="/jointventure/mortgage" data-cta="midpage-mortgage">Mortgage Broker</a>
+            <a class="btn btn--white" href="/jointventure/entrepreneur" data-cta="midpage-entrepreneur">Entrepreneur / Investor</a>
           </div>
         </div>
       </div>
@@ -626,9 +635,9 @@
           <h2>Capture revenue from transactions you are already producing.</h2>
           <p style="max-width: 60ch; margin: 0 auto 24px;">Choose your JV track to see the structure, the form, and the next steps. Each track has its own short application.</p>
           <div class="btn-row" style="flex-wrap: wrap; gap: 10px;">
-            <a class="btn btn--accent" href="/jointventure/realtor" data-cta="footer-realtor">Real Estate JV</a>
-            <a class="btn btn--primary" href="/jointventure/mortgage" data-cta="footer-mortgage">Mortgage JV</a>
-            <a class="btn btn--white" href="/jointventure/entrepreneur" data-cta="footer-entrepreneur">Entrepreneur JV</a>
+            <a class="btn btn--accent" href="/jointventure/realtor" data-cta="footer-realtor">Real Estate</a>
+            <a class="btn btn--primary" href="/jointventure/mortgage" data-cta="footer-mortgage">Mortgage Broker</a>
+            <a class="btn btn--white" href="/jointventure/entrepreneur" data-cta="footer-entrepreneur">Entrepreneur / Investor</a>
           </div>
         </div>
       </div>
@@ -649,9 +658,9 @@
         <div>
           <h3 style="font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 14px;">On this page</h3>
           <ul>
-            <li><a href="/jointventure/realtor">Real Estate JV</a></li>
-            <li><a href="/jointventure/mortgage">Mortgage JV</a></li>
-            <li><a href="/jointventure/entrepreneur">Entrepreneur JV</a></li>
+            <li><a href="/jointventure/realtor">Real Estate</a></li>
+            <li><a href="/jointventure/mortgage">Mortgage Broker</a></li>
+            <li><a href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
             <li><a href="#how-it-works">How it works</a></li>
             <li><a href="#respa">Compliance</a></li>
             <li><a href="#faq">FAQ</a></li>
@@ -718,6 +727,27 @@
       document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && isOpen()) shut(); });
       // Safety net: if something nukes the page state, restore scroll on unload
       window.addEventListener('pagehide', function(){ document.body.style.overflow = ''; });
+    })();
+    // Apply Now dropdown — click to open, outside-click / Escape / link-click to close
+    (function () {
+      var wrap = document.querySelector('[data-dropdown]');
+      if (!wrap) return;
+      var btn = wrap.querySelector('[data-dropdown-toggle]');
+      var menu = wrap.querySelector('[data-dropdown-menu]');
+      if (!btn || !menu) return;
+      function isOpen() { return wrap.dataset.open === 'true'; }
+      function open() { wrap.dataset.open = 'true'; btn.setAttribute('aria-expanded', 'true'); }
+      function shut() { wrap.dataset.open = 'false'; btn.setAttribute('aria-expanded', 'false'); }
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        if (isOpen()) shut(); else open();
+      });
+      document.addEventListener('click', function(e){
+        if (!isOpen()) return;
+        if (!wrap.contains(e.target)) shut();
+      });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && isOpen()) shut(); });
+      menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', shut); });
     })();
     // Footer year
     (function(){ var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); })();
