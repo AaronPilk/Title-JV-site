@@ -1,0 +1,23 @@
+# Cloudflare Pages redirects — old URLs to the new /jointventure/* funnels.
+# Both with and without .html so old links, old shares, and stray crawler URLs all forward.
+
+# Old mortgage page → new Mortgage JV funnel
+/mortgage-brokers          /jointventure/mortgage      301
+/mortgage-brokers.html     /jointventure/mortgage      301
+
+# Old real estate page → new Real Estate JV funnel
+/real-estate               /jointventure/realtor       301
+/real-estate.html          /jointventure/realtor       301
+
+# Top producers folded into the Real Estate JV funnel
+/top-producers             /jointventure/realtor       301
+/top-producers.html        /jointventure/realtor       301
+
+# Old qualifier — homepage chooses the right funnel now
+/qualify                   /                           301
+/qualify.html              /                           301
+
+# Pretty URLs for the new funnels (allow trailing slash, drop .html)
+/jointventure/realtor/      /jointventure/realtor      301
+/jointventure/mortgage/     /jointventure/mortgage     301
+/jointventure/entrepreneur/ /jointventure/entrepreneur 301
