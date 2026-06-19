@@ -207,6 +207,7 @@
  <ul class="nav__list">
  <li><a class="nav__link" href="/">Home</a></li>
  <li><a class="nav__link" href="#how-it-works">How it works</a></li>
+ <li><a class="nav__link" href="#calculator">Calculator</a></li>
  <li><a class="nav__link" href="#respa">Compliance</a></li>
  <li><a class="nav__link" href="#faq">FAQ</a></li>
  <li class="nav__cta nav__dropdown" data-dropdown>
@@ -243,6 +244,7 @@
  <li><a class="mobile-menu__link" href="/jointventure/realtor">Real Estate</a></li>
  <li><a class="mobile-menu__link" href="/jointventure/mortgage">Mortgage Broker</a></li>
  <li><a class="mobile-menu__link" href="/#how-it-works">How it works</a></li>
+ <li><a class="mobile-menu__link" href="/#calculator">Calculator</a></li>
  <li><a class="mobile-menu__link" href="/#respa">Compliance</a></li>
  <li><a class="mobile-menu__link" href="/#faq">FAQ</a></li>
  </ul>
@@ -374,6 +376,40 @@
  <h3 class="card__title">Compliance</h3>
  <p class="card__body">We&rsquo;ve taken the necessary steps to ensure our joint ventures adhere to the guidelines set forth by RESPA &amp; NAR. Structured to be compliant from inception.</p>
  </article>
+ </div>
+ </div>
+ </section>
+
+ <!-- Earnings calculator section -->
+ <section class="section section--soft" id="calculator">
+ <div class="container">
+ <div class="section-head">
+ <p class="eyebrow">See your potential</p>
+ <h2>How much could your business be earning?</h2>
+ <p class="lead" style="margin-inline:auto;">Move the slider or type the monthly title insurance premium your closings already generate.</p>
+ </div>
+
+ <div class="hero-earn" style="max-width: 720px; margin: 0 auto;">
+ <p class="hero-earn__prompt">How much title insurance are you closing each month?</p>
+ <div class="hero-earn__control">
+ <div class="hero-earn__field">
+ <span class="hero-earn__currency" aria-hidden="true">$</span>
+ <input type="text" id="earn-input" inputmode="decimal" value="25,000" aria-label="Monthly title insurance amount">
+ </div>
+ <input type="range" id="earn-slider" class="hero-earn__slider" min="0" max="200000" step="1000" value="25000" aria-label="Adjust monthly title insurance amount">
+ </div>
+ <div class="hero-earn__result">
+ <p class="hero-earn__result-label">You could be earning</p>
+ <p class="hero-earn__result-value" id="earn-output">$7,750 / month</p>
+ </div>
+ </div>
+
+ <div style="text-align: center; margin-top: 32px;">
+ <p style="margin: 0 0 14px; font-size: 0.95rem; color: var(--brand-primary); font-weight: 600;">Ready to see what this looks like for your specific business?</p>
+ <div class="btn-row" style="justify-content: center; flex-wrap: wrap; gap: 10px;">
+ <a class="btn btn--accent" href="/jointventure/realtor" data-cta="calc-realtor">Real Estate &mdash; Inquire Now</a>
+ <a class="btn btn--primary" href="/jointventure/mortgage" data-cta="calc-mortgage">Mortgage Broker &mdash; Inquire Now</a>
+ </div>
  </div>
  </div>
  </section>
@@ -639,6 +675,39 @@
  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && isOpen()) shut(); });
  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', shut); });
  })();
+ // Hero earnings widget — slider + input stay in sync, output glows green
+ (function(){
+ var input = document.getElementById('earn-input');
+ var slider = document.getElementById('earn-slider');
+ var output = document.getElementById('earn-output');
+ if (!input || !slider || !output) return;
+ var SHARE = 0.31;
+ function num(n) { return Math.round(n).toLocaleString('en-US'); }
+ function render(value) {
+ var v = Math.max(0, parseFloat(value) || 0);
+ output.textContent = '$' + num(v * SHARE) + ' / month';
+ }
+ function syncFromSlider() {
+ var v = parseFloat(slider.value) || 0;
+ input.value = num(v);
+ render(v);
+ }
+ function syncFromInput() {
+ var raw = (input.value || '').replace(/[^0-9.]/g, '');
+ var v = Math.max(0, parseFloat(raw) || 0);
+ var max = parseFloat(slider.max);
+ slider.value = Math.min(v, max);
+ render(v);
+ }
+ slider.addEventListener('input', syncFromSlider);
+ input.addEventListener('input', syncFromInput);
+ input.addEventListener('blur', function(){
+ var raw = (input.value || '').replace(/[^0-9.]/g, '');
+ input.value = num(parseFloat(raw) || 0);
+ });
+ syncFromSlider();
+ })();
+
  // Footer year
  (function(){ var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); })();
  </script>
