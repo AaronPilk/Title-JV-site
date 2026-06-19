@@ -17,7 +17,7 @@
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="/styles.css?v=20260618">
+ <link rel="stylesheet" href="/styles.css?v=20260618c">
 
  <script>
  window.JV_PIXELS = {
@@ -130,7 +130,6 @@
  <li><a class="mobile-menu__link" href="/">Home</a></li>
  <li><a class="mobile-menu__link" href="/jointventure/realtor">Real Estate</a></li>
  <li><a class="mobile-menu__link" href="/jointventure/mortgage">Mortgage Broker</a></li>
- <li><a class="mobile-menu__link" href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
  <li><a class="mobile-menu__link" href="/#how-it-works">How it works</a></li>
  <li><a class="mobile-menu__link" href="/#respa">Compliance</a></li>
  <li><a class="mobile-menu__link" href="/#faq">FAQ</a></li>
@@ -152,8 +151,8 @@
  <ul class="trust-list" style="margin-bottom: 16px;" aria-label="What you take away">
  <li>How a compliant title JV is structured under RESPA</li>
  <li>Why most brokerages leave ancillary revenue on the table</li>
- <li>What the economics look like at your transaction volume</li>
- <li>Whether your brokerage and market may qualify</li>
+ <li>What the revenue potential looks like at your transaction volume</li>
+ <li>Whether your brokerage and market are a good fit</li>
  </ul>
 
  <div class="hero-earn">
@@ -195,14 +194,21 @@
  </div>
 
  <div class="lp-field">
- <label for="brokerage">Brokerage / team name</label>
- <input type="text" id="brokerage" name="organization" autocomplete="organization" required>
+ <label for="company">Company name</label>
+ <input type="text" id="company" name="organization" autocomplete="organization" required>
  </div>
 
  <div class="lp-field-row">
  <div class="lp-field">
- <label for="agent_count"># of agents</label>
- <input type="text" id="agent_count" name="qualifying_metric" inputmode="numeric" placeholder="e.g., 25" required>
+ <label for="units">Closings per month</label>
+ <select id="units" name="qualifying_metric" required>
+ <option value="">Select&hellip;</option>
+ <option value="Under 5">Under 5</option>
+ <option value="5-10">5 to 10</option>
+ <option value="11-20">11 to 20</option>
+ <option value="21-40">21 to 40</option>
+ <option value="40+">40+</option>
+ </select>
  </div>
  <div class="lp-field">
  <label for="state">State</label>
@@ -239,7 +245,7 @@
  <div class="container">
  <div class="section-head">
  <p class="eyebrow">Sample earning potential</p>
- <h2>Published reference numbers at typical brokerage volume.</h2>
+ <h2>Projected monthly profit at typical brokerage volume.</h2>
  <p class="lead" style="margin-inline:auto;">Sample monthly profit after remittance and operation costs, based on an average loan amount of $500,000 per closing. Actual figures depend on your market and structure.</p>
  </div>
  <div class="jv-benchmarks">
@@ -263,10 +269,10 @@
  </div>
  </section>
 
- <!-- Why Most Brokers Leave Money on the Table -->
+ <!-- Why Most Brokerages Miss Out on Additional Revenue Opportunities -->
  <section class="section lp-section" id="leave-money">
  <div class="container" style="max-width: 880px;">
- <p class="eyebrow">Why most brokers leave money on the table</p>
+ <p class="eyebrow">Why most brokerages miss out on additional revenue opportunities</p>
  <h2>Title revenue is generated on every closing &mdash; and your brokerage does not participate in it.</h2>
  <p>Every transaction your team closes generates title insurance premium. Today, that premium flows entirely to whichever title company the buyer, lender, or settlement agent chose. None of it routes back to the brokerage that helped create the transaction. For an active team or independent brokerage doing hundreds of sides per year, that is a meaningful ancillary revenue stream that simply does not exist on the P&amp;L.</p>
  <p>The reason it doesn&rsquo;t exist is not regulatory. It is structural. RESPA prohibits paying for referrals, but Section explicitly permits operators to hold ownership in an affiliated settlement-services company &mdash; and to receive distributions from that company &mdash; provided the arrangement meets three specific conditions. Most brokers have never been shown how to structure that arrangement, so they default to referring business out.</p>
@@ -372,7 +378,6 @@
  <ul>
  <li><a href="/jointventure/realtor">Real Estate</a></li>
  <li><a href="/jointventure/mortgage">Mortgage Broker</a></li>
- <li><a href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
  <li><a href="/">Program overview</a></li>
  </ul>
  </div>
@@ -473,8 +478,8 @@
  data.source_funnel = 'realtor';
  data.lead_tag = 'JV Realtor';
  data.pipeline = 'JV Realtor';
- data.qualifying_metric_label = '# of Agents';
- data.organization_label = 'Brokerage';
+ data.qualifying_metric_label = 'Closings per month';
+ data.organization_label = 'Company';
  data.referrer = document.referrer || '';
  data.page_url = window.location.href;
  data.submitted_at = new Date().toISOString();

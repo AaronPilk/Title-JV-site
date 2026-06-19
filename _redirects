@@ -13,6 +13,10 @@
 /top-producers             /jointventure/realtor       301
 /top-producers.html        /jointventure/realtor       301
 
+# Entrepreneur funnel retired — route to overview to pick a remaining track
+/jointventure/entrepreneur       /                     301
+/jointventure/entrepreneur.html  /                     301
+
 # Old qualifier — homepage chooses the right funnel now
 /qualify                   /                           301
 /qualify.html              /                           301

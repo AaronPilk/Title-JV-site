@@ -17,7 +17,7 @@
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="/styles.css?v=20260618">
+ <link rel="stylesheet" href="/styles.css?v=20260618c">
 
  <script>
  window.JV_PIXELS = {
@@ -118,7 +118,6 @@
  <li><a class="mobile-menu__link" href="/">Home</a></li>
  <li><a class="mobile-menu__link" href="/jointventure/realtor">Real Estate</a></li>
  <li><a class="mobile-menu__link" href="/jointventure/mortgage">Mortgage Broker</a></li>
- <li><a class="mobile-menu__link" href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
  <li><a class="mobile-menu__link" href="/#how-it-works">How it works</a></li>
  <li><a class="mobile-menu__link" href="/#respa">Compliance</a></li>
  <li><a class="mobile-menu__link" href="/#faq">FAQ</a></li>
@@ -141,7 +140,7 @@
  <li>How an affiliated title company is structured under RESPA</li>
  <li>How mortgage + title synergy improves the borrower experience</li>
  <li>What the revenue looks like at your monthly loan volume</li>
- <li>Whether your company and market may qualify</li>
+ <li>Whether your brokerage and market are a good fit</li>
  </ul>
 
  <div class="hero-earn">
@@ -187,8 +186,15 @@
 
  <div class="lp-field-row">
  <div class="lp-field">
- <label for="loan_volume">Monthly loan volume</label>
- <input type="text" id="loan_volume" name="qualifying_metric" placeholder="e.g., $8M / mo" required>
+ <label for="units">Closings per month</label>
+ <select id="units" name="qualifying_metric" required>
+ <option value="">Select&hellip;</option>
+ <option value="Under 5">Under 5</option>
+ <option value="5-10">5 to 10</option>
+ <option value="11-20">11 to 20</option>
+ <option value="21-40">21 to 40</option>
+ <option value="40+">40+</option>
+ </select>
  </div>
  <div class="lp-field">
  <label for="state">State</label>
@@ -225,7 +231,7 @@
  <div class="container">
  <div class="section-head">
  <p class="eyebrow">Sample earning potential</p>
- <h2>Published reference numbers at typical mortgage volume.</h2>
+ <h2>Projected monthly profit at typical mortgage volume.</h2>
  <p class="lead" style="margin-inline:auto;">Sample monthly profit after remittance and operation costs, based on an average loan amount of $500,000 per closing. Actual figures depend on your market and structure.</p>
  </div>
  <div class="jv-benchmarks">
@@ -357,7 +363,6 @@
  <ul>
  <li><a href="/jointventure/realtor">Real Estate</a></li>
  <li><a href="/jointventure/mortgage">Mortgage Broker</a></li>
- <li><a href="/jointventure/entrepreneur">Entrepreneur / Real Estate Investor</a></li>
  <li><a href="/">Program overview</a></li>
  </ul>
  </div>
@@ -447,7 +452,7 @@
  data.source_funnel = 'mortgage';
  data.lead_tag = 'JV Mortgage';
  data.pipeline = 'JV Mortgage';
- data.qualifying_metric_label = 'Monthly Loan Volume';
+ data.qualifying_metric_label = 'Closings per month';
  data.organization_label = 'Company';
  data.referrer = document.referrer || '';
  data.page_url = window.location.href;
