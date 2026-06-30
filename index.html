@@ -274,6 +274,22 @@
  <a class="btn btn--accent" href="/jointventure/realtor" data-cta="hero-realtor" style="width:100%; white-space: nowrap; min-width: 0;">Real Estate</a>
  <a class="btn btn--primary" href="/jointventure/mortgage" data-cta="hero-mortgage" style="width:100%; white-space: nowrap; min-width: 0;">Mortgage Broker</a>
  </div>
+
+ <!-- Compact earnings widget directly under the hero CTAs -->
+ <div class="hero-earn" style="max-width: 520px; margin-top: 20px;">
+ <p class="hero-earn__prompt">How much title insurance are you closing each month?</p>
+ <div class="hero-earn__control">
+ <div class="hero-earn__field">
+ <span class="hero-earn__currency" aria-hidden="true">$</span>
+ <input type="text" id="earn-input-hero" inputmode="decimal" value="25,000" aria-label="Monthly title insurance amount">
+ </div>
+ <input type="range" id="earn-slider-hero" class="hero-earn__slider" min="0" max="200000" step="1000" value="25000" aria-label="Adjust monthly title insurance amount">
+ </div>
+ <div class="hero-earn__result">
+ <p class="hero-earn__result-label">You could be earning</p>
+ <p class="hero-earn__result-value" id="earn-output-hero">$7,750 / month</p>
+ </div>
+ </div>
  </div>
 
  <div id="how-it-works">
@@ -679,6 +695,39 @@
  var input = document.getElementById('earn-input');
  var slider = document.getElementById('earn-slider');
  var output = document.getElementById('earn-output');
+ if (!input || !slider || !output) return;
+ var SHARE = 0.31;
+ function num(n) { return Math.round(n).toLocaleString('en-US'); }
+ function render(value) {
+ var v = Math.max(0, parseFloat(value) || 0);
+ output.textContent = '$' + num(v * SHARE) + ' / month';
+ }
+ function syncFromSlider() {
+ var v = parseFloat(slider.value) || 0;
+ input.value = num(v);
+ render(v);
+ }
+ function syncFromInput() {
+ var raw = (input.value || '').replace(/[^0-9.]/g, '');
+ var v = Math.max(0, parseFloat(raw) || 0);
+ var max = parseFloat(slider.max);
+ slider.value = Math.min(v, max);
+ render(v);
+ }
+ slider.addEventListener('input', syncFromSlider);
+ input.addEventListener('input', syncFromInput);
+ input.addEventListener('blur', function(){
+ var raw = (input.value || '').replace(/[^0-9.]/g, '');
+ input.value = num(parseFloat(raw) || 0);
+ });
+ syncFromSlider();
+ })();
+
+ // Hero earnings widget (inline under the CTAs)
+ (function(){
+ var input = document.getElementById('earn-input-hero');
+ var slider = document.getElementById('earn-slider-hero');
+ var output = document.getElementById('earn-output-hero');
  if (!input || !slider || !output) return;
  var SHARE = 0.31;
  function num(n) { return Math.round(n).toLocaleString('en-US'); }
