@@ -24,8 +24,21 @@
  META_PIXEL_ID: 'REPLACE_WITH_META_PIXEL_ID',
  GOOGLE_ADS_ID: 'AW-REPLACE_WITH_GOOGLE_ADS_ID',
  GOOGLE_ADS_LEAD_LABEL: 'REPLACE_WITH_CONVERSION_LABEL',
- LINKEDIN_PARTNER_ID: 'REPLACE_WITH_LINKEDIN_PARTNER_ID'
+ LINKEDIN_PARTNER_ID: 'REPLACE_WITH_LINKEDIN_PARTNER_ID',
+ CLOUDFLARE_WEB_ANALYTICS_TOKEN: 'REPLACE_WITH_CF_WA_TOKEN'
  };
+ </script>
+ <!-- Cloudflare Web Analytics beacon -->
+ <script>
+ (function(){
+  var t = window.JV_PIXELS.CLOUDFLARE_WEB_ANALYTICS_TOKEN;
+  if (!t || t.indexOf('REPLACE') !== -1) return;
+  var s = document.createElement('script');
+  s.defer = true;
+  s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  s.setAttribute('data-cf-beacon', JSON.stringify({ token: t }));
+  document.head.appendChild(s);
+ })();
  </script>
  <script>
  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
