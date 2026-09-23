@@ -473,6 +473,9 @@
 
  var data = {};
  new FormData(form).forEach(function(v, k){ data[k] = v; });
+ // Strip honeypot: browsers autofill hidden fields with names like "website".
+ // Legit submissions from this JS never carry it; bots that bypass this JS still trip the server-side check.
+ delete data.website;
 
  // Validate
  var required = ['first_name','last_name','organization','qualifying_metric','state','phone','email'];
